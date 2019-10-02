@@ -44,7 +44,7 @@ Tools
 ---
 There are many possibilities to support the process and the production of the artifacts required. However, we suggest the following (optional):
 * Github (Classroom), to store source code, models, and documentation, change requests.
-* Visual Studio Code, as multilanguage code editor
+* Visual Source Code, as multilanguage code editor
 * Visual Paradigm, for UML diagrams
 * Trello, for Tasks Management
 * HackMD to edit documents collaboratively, and synced with Github
