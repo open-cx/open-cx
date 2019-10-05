@@ -1,24 +1,26 @@
-# OpenCX Development Report
+# OpenCX
 
-OpenCX is an integrated set of apps to improve the collective experience (CX) and participation of people attending professional conferences, group meetings and public spaces in general.
+OpenCX is an integrated set of apps aimed to improve the collective experience (CX) of participants attending professional conferences, group meetings and public spaces in general.
 
 OpenCX explores technologies in the areas of Internet of Things (IoT) and multimedia visualization applicable to distributed services and for creating augmented spaces.
 
-OpenCX is based on the results of the [thesis of Pedro Ayala](https://sigarra.up.pt/feup/pt/pub_geral.show_file?pi_doc_id=159427), supervised by Ademar Aguiar and Miguel Carvalhais, to be released as opensource (Open). 
+OpenCX is based on the results of the [thesis of Pedro Ayala (Master on Multimedia)](https://sigarra.up.pt/feup/pt/pub_geral.show_file?pi_doc_id=159427), supervised by Ademar Aguiar and Miguel Carvalhais. 
+
+OpenCX is planned to be released under an opensource license.
 
 Teams
 ---
-The project is developed in the context of the [Software Engineering course of the Master in Informatics and Computing Engineering](https://sigarra.up.pt/feup/en/UCURR_GERAL.FICHA_UC_VIEW?pv_ocorrencia_id=436443), coordinated by Ademar Aguiar and Filipe Correia, with contributions from [36 small teams of students from MIEIC/ESOF course, 2019/20 edition](https://sigarra.up.pt/feup/en/fest_geral.fotos_estud_inscritos_list?pv_ocorrencia_id=436443&pv_dimensao_matriz=6).
+OpenCX is developed in the context of the [Software Engineering course of the Master in Informatics and Computing Engineering](https://sigarra.up.pt/feup/en/UCURR_GERAL.FICHA_UC_VIEW?pv_ocorrencia_id=436443), coordinated by [Ademar Aguiar](https://sigarra.up.pt/feup/en/func_geral.formview?p_codigo=231081), [Filipe Correia](https://sigarra.up.pt/feup/en/func_geral.formview?p_codigo=486352), and [Rui Neves](https://sigarra.up.pt/feup/en/func_geral.formview?p_codigo=618538), with contributions from [36 development teams of students](https://sigarra.up.pt/feup/en/fest_geral.fotos_estud_inscritos_list?pv_ocorrencia_id=436443&pv_dimensao_matriz=6) from MIEIC/ESOF course, 2019/20 edition, [2 agile coaches](), students from MIEIC/MADS course, 2019/20 edition, and [João Pedro Dias](https://jpdias.me), as IoT expert, doctoral student of ProDEI. 
 
 Process
 ---
-OpenCX has a strong pedagogical motivation, a kind of playground for several software engineering practices, both from traditional (e.g. 'weighty' Unified Process) and agile processes (e.g. Extreme Programming).
+OpenCX has a strong pedagogical motivation, being a kind of playground for several software engineering practices, blending practices both from traditional processes (e.g. Unified Process) and agile processes (e.g. Extreme Programming).
 
-The development follows a simple iterative process, organized in the four phases of Unified Process (Inception, Elaboration, Construction, Transition), encompassing activities mostly from Requirements, Design, Implementation, Test, and Deployment disciplines, and a few from Business Modeling, Change Management, and Project Management.
+The development follows a simple iterative process, organized in the four phases of Unified Process (Inception, Elaboration, Construction, Transition), and encompassing activities not only from Requirements, Design, Implementation, Test, and Deployment disciplines, but also a few other activities from Business Modeling, Change Management, and Project Management.
 
 Artifacts
 ---
-During the 12 weeks of initial development under the context of MIEIC/ESOF, several deliverables will be produced, being the following ones considered mandatory, for each team and their apps, organized by discipline:
+During the 12 weeks of initial development under the context of MIEIC/ESOF, several deliverables will be produced, being the following ones considered mandatory, for each team and their apps, all briefly described below organized by discipline:
 
 * Business Modeling
     * Vision
@@ -43,11 +45,11 @@ During the 12 weeks of initial development under the context of MIEIC/ESOF, seve
 Tools
 ---
 There are many possibilities to support the process and the production of the artifacts required. However, we suggest the following (optional):
-* Github (Classroom), to store source code, models, and documentation, change requests.
-* Visual Source Code, as multilanguage code editor
-* Visual Paradigm, for UML diagrams
-* Trello, for Tasks Management
-* HackMD to edit documents collaboratively, and synced with Github
+* Github Classroom), to manage source code, models, and documentation, and change requests.
+* Visual Studio Code, as a multilanguage code editor.
+* Visual Paradigm, for UML diagrams.
+* Trello, for Tasks Management.
+* HackMD to edit documents collaboratively, and sync with Github.
 
 Technologies
 ---
@@ -60,14 +62,15 @@ Technologies
 * things
     * beacons
     * 
-* server/services:
+* services:
     * RaspberryPi
     * VPS at FEUP
+    * ...
 
 
 Environment
 ---
-The target environment is the upcoming <Programming> 2020 Conference, 23-26 March 2020, to be held at FEUP, Porto, Portugal.
+The target environment is the upcoming [&lt;Programming&gt; 2020, the 4th International Conference on the Art, Science and Engineering of Programming](https://2020.programming-conference.org), to be held on 23-26 March 2020, at FEUP, Porto, Portugal.
 
 
 ###### tags: `Templates` `Book`
