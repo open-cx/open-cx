@@ -81,7 +81,7 @@ For each theme, or role, you may add a small description here. User stories shou
 
 A user story is a description of desired functionality told from the perspective of the user or customer. A starting template for the description of a user story is 
 
-*As a <user role>, I want <goal> so that <reason>.*
+*As a < user role >, I want < goal > so that < reason >.*
 
 You add more details after, but the shorter and complete, the better. In order to decide if the user story is good, please follow the INVEST guidelines.
 
