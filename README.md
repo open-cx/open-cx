@@ -20,27 +20,7 @@ The development follows a simple iterative process, organized in the four phases
 
 Documentation
 ---
-During the 12 weeks of initial development under the context of MIEIC/ESOF, each team will produce a [Software Development Report](), including the detailed information, organized as following:
-
-* Business Modeling
-    * [Product Vision]()
-    * [Elevator Pitch]()
-* Requirements
-    * Use Cases: UML Use-Cases diagram, high-level description of actors, and use cases.
-    * User stories: user-story map, and per user story, a brief description, user-interface mockups, the most important usage scenarios (i.e. concrete examples), and respective acceptance tests (written in Gherkin).
-    * Domain model: UML Classes diagram, including key domain concepts and relationships, and entries to the glossary of terms global to the project.
-* Architecture and Design
-    * Technological architecture: UML deployment and component diagrams with technologies, components, and devices.
-    * Design decisions: problems, options, chosen solution, possibly using design or architectural patterns.
-* Implementation
-    * Source code
-    * Documentation of feature requests, bug fixes, improvements.
-* Test
-    * Functional tests, integration tests, acceptance tests, as much automated as possible.
-* Change management
-    * Issues, Branches, Commits at Git repository
-* Project management
-    * Tasks management tool
+During the 12 weeks of initial development under the context of MIEIC/ESOF, each team will produce a [Software Development Report (see template)](https://github.com/softeng-feup/open-cx/blob/master/docs/templates/Development-Report.md), including detailed information organized by Unified Process disciplines: Business Modeling, Requirements, Architecture and Design, Implementation, Test, Change management and Project management.
 
 Tools
 ---
