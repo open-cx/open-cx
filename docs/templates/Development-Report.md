@@ -12,18 +12,13 @@ You can find here detailed about the (sub)product, hereby mentioned as module, f
   * [User stories](#User-stories)
   * [Domain model](#Domain-model)
 * Architecture and Design
-  * [Logical architecture](Logical-architecture)
-  * [Physical architecture](Physical-architecture)
-  * [Prototype](Prototype)
-* Implementation
-  * [Source code]()
-  * [Issues](): feature requests, bug fixes, improvements.
-* Test
-  * [Automated tests](): Functional tests, integration tests, acceptance tests, as much automated as possible.
-* Change management
-  * [Issues at Github]()
-* Project management
-  * Tasks management tool 
+  * [Logical architecture](#Logical-architecture)
+  * [Physical architecture](#Physical-architecture)
+  * [Prototype](#Prototype)
+* [Implementation](#Implementation)
+* [Test](#Test)
+* [Configuration and Change management](#Configuration-and-Change-management)
+* [Project management](#Project-management)
 
 So far, contributions are exclusively made by the initial team, but we hope to open them to the community, in all areas and topics: requirements, technologies, development, experimentation, testing, etc.
 
@@ -83,20 +78,21 @@ This section will contain the requirements of the product described as **user st
 
 For each theme, or role, you may add a small description. User stories should be detailed in the tool you decided to use for project management (e.g. trello or github projects).
 
-#### What is a user story?
 A user story is a description of desired functionality told from the perspective of the user or customer. A starting template for the description of a user story is 
 
 *As a < user role >, I want < goal > so that < reason >.*
 
+
+**INVEST in good user stories**. 
 You may add more details after, but the shorter and complete, the better. In order to decide if the user story is good, please follow the [INVEST guidelines](https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/).
 
-#### User interface mockups
+**User interface mockups**.
 After the user story text, you should add a draft of the corresponding user interfaces, a simple mockup or draft, if applicable.
 
-#### Acceptance tests
+**Acceptance tests**.
 For each user story you should write also the acceptance tests (textually in Gherkin), i.e., a description of scenarios (situations) that will help to confirm that the system satisfies the requirements addressed by the user story.
 
-#### Value and effort
+**Value and effort**.
 At the end, it is good to add a rough indication of the value of the user story to the customers (e.g. [MoSCoW](https://en.wikipedia.org/wiki/MoSCoW_method) method) and the team should add an estimation of the effort to implement it, for example, using t-shirt sizes (XS, S, M, L, XL).
 
 ### Domain model
@@ -176,6 +172,3 @@ Example of tools to do this are:
   * [Jira](https://www.atlassian.com/software/jira)
 
 We recommend to use the simplest tool that can possibly work for the team.
-
-
-
