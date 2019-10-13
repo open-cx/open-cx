@@ -17,7 +17,7 @@ You can find here detailed about the (sub)product, hereby mentioned as module, f
   * [Prototype](#Prototype)
 * [Implementation](#Implementation)
 * [Test](#Test)
-* [Configuration and Change management](#Configuration-and-Change-management)
+* [Configuration and change management](#Configuration-and-change-management)
 * [Project management](#Project-management)
 
 So far, contributions are exclusively made by the initial team, but we hope to open them to the community, in all areas and topics: requirements, technologies, development, experimentation, testing, etc.
@@ -150,7 +150,7 @@ In this section it is only expected to include the following:
 A good practice is to simplify this, avoiding repetitions, and automating the testing actions as much as possible.
 
 ---
-## Configuration and Change management
+## Configuration and change management
 
 Configuration and change management are key activities to control change to, and maintain the integrity of, a project’s artifacts (code, models, documents).
 
