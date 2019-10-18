@@ -33,7 +33,9 @@ Thank you!
 ## Product Vision
 Start by defining a clear and concise vision for your module, to help members of the team, contributors, and users into focusing their often disparate views into a concise, visual, and short textual form. It provides a "high concept" of the product for marketers, developers, and managers.
 
-A product vision describes the essential of the product and sets the direction to where a product is headed, and what the product will deliver in the future.
+A product vision describes the essential of the product and sets the direction to where a product is headed, and what the product will deliver in the future. 
+
+**We favor a catchy and concise statement, ideally one sentence.**
 
 To learn more about how to write a good product vision, please see also:
 * [How To Create A Convincing Product Vision To Guide Your Team, by uxstudioteam.com](https://uxstudioteam.com/ux-blog/product-vision/)
@@ -44,7 +46,7 @@ To learn more about how to write a good product vision, please see also:
 
 ---
 ## Elevator Pitch
-Draft a small text to help you quickly introduce and describe your product in a short time and a few words, a technique usually known as elevator pitch.
+Draft a small text to help you quickly introduce and describe your product in a short time and a few words (~800 characters), a technique usually known as elevator pitch.
 
 Take a look at the following links to learn some techniques:
 * [Crafting an Elevator Pitch](https://www.mindtools.com/pages/article/elevator-pitch.htm)
@@ -74,7 +76,7 @@ Briefly describe each use case mentioning the following:
 * **Alternative Flows and Exceptions**. Document other, legitimate usage scenarios that can take place within this use case, stating any differences in the sequence of steps that take place. In addition, describe any anticipated error conditions that could occur during execution of the use case, and define how the system is to respond to those conditions. 
 
 ### User stories
-This section will contain the requirements of the product described as **user stories**, organized in a global **user story map** with **user roles** or **themes**.
+This section will contain the requirements of the product described as **user stories**, organized in a global **[user story map](https://plan.io/blog/user-story-mapping/)** with **user roles** or **themes**.
 
 For each theme, or role, you may add a small description. User stories should be detailed in the tool you decided to use for project management (e.g. trello or github projects).
 
@@ -130,11 +132,9 @@ In this subsection please describe in more detail which, and how, user(s) story(
 ---
 
 ## Implementation
-During implementation, while not necessary, it 
+Regular product increments are a good practice of product management. 
 
-It might be also useful to explain a few aspects of the code that have the greatest potential to confuse software engineers about how it works. 
-
-Since the code should speak by itself, try to keep this section as short and simple as possible.
+While not necessary, sometimes it might be useful to explain a few aspects of the code that have the greatest potential to confuse software engineers about how it works. Since the code should speak by itself, try to keep this section as short and simple as possible.
 
 Use cross-links to the code repository and only embed real fragments of code when strictly needed, since they tend to become outdated very soon.
 
