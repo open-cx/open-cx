@@ -31,7 +31,7 @@ There are many possibilities to support the process and the production of the do
 * Trello: tasks management.
 * HackMD: collaborative editor, synced with Github.
 
-Technologies
+Technologieswefefew
 ---
 * mobile apps:
     * Flutter
