@@ -30,6 +30,7 @@ app.use('/posts/speaker', speakersRoute);
 app.use('/posts/talk', talksRoute);
 app.use(cors());
 
+
 // Get request
 app.get('/', (req, res) => {
   res.send("Root directory\n");
