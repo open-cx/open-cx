@@ -1,7 +1,7 @@
 FROM node:10
 
 # Create app directory
-WORKDIR /home/mark/dev/ESOF/backend
+WORKDIR /home/backend/
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
@@ -15,6 +15,6 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-EXPOSE 2222
+EXPOSE 5000
 
 CMD [ "node", "app.js" ]
