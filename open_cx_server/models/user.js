@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const userSchema = mongoose.Schema({
+  id: String,
   username: {
     type: String
   },
@@ -21,8 +22,21 @@ const userSchema = mongoose.Schema({
     min: 13,
     max: 90
   },
+  emitter: String,
+  photo: String,
+  location: String,
   description: String,
   tags: [String],
+  skills: [String],
+  socials: {
+    facebook: String,
+    instagram: String,
+    github: String,
+    linkedin: String,
+    twitter: String,
+    youtube: String,
+  },
+  programming_languages: [String],
   conferences: [String],
   points: {
     type: Number,

@@ -8,8 +8,8 @@ const OPTS = { useUnifiedTopology: true, useNewUrlParser: true };
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const PORT = 5000;
-const HOST = '0.0.0.0';
+const PORT = 8000;
+const HOST = 'localhost';
 
 const routes = require('./routes');
 
