@@ -110,7 +110,9 @@ If you want to add an attribute to an already existing schema, you should:
 
 -  open the schema file (all of them are located in the **models** folder), and add a new entry to the eventSchema object. You should be fine by following the already existing code in that folder.
 
-- go to the **routes/posts** folder and add/alter the router functions according to your needs.
+- go to the **routes/** folder and add/alter the router functions according to your needs.
+
+- in the **routes/index.js** file add the new router you created.
 
 
 ## How can I populate the database?
@@ -121,7 +123,7 @@ Also, **before creating new routers, please check if there's already one that ca
 
 You can follow one of the two following alternatives:
 
-- Access the API's admin interface through the address http://0.0.0.0:2222/admin/ and add new entries through it;
+- Access the API's admin interface through the address http://0.0.0.0:5000/admin/ and add new entries through it;
 
 - Make a post request using, for example, Postman.
 
