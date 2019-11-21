@@ -34,7 +34,7 @@ app.use(cors());
 app.get('/', (req, res) => {
   res.send("Root directory\n");
 });
-
+  
 // Connects app to a MongoDB database
 mongoose.connect(process.env.DB_CONNECTION, OPTS, () => { console.log("Attempting connection to database") });
 

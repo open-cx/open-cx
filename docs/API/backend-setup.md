@@ -9,7 +9,16 @@ The folder **open_cx_server** contains code linked to the backend of the main op
 
 Because we want the creation and deployment of our backend to be built on top of a common architecture, we will be allowing the usage of **Docker** containers, so that we can package up applications with all of the parts it needs - such as libraries and other dependencies - and ship it all out as one package. Although Docker integration won't be initially available, we will try our best to deliver it as soon as we possibly can.
 
-## How can I install the server-side environment?
+## How can I use the API?
+
+We have deployed the API to a Heroku server. You can send requests to it through the following link: open-cx.herokuapp.com/.
+
+The way to exchange information with the API is very simple: you just append the location of one of the routers to the API link. 
+
+The following is an example of how to get the whole information about every user in the database:
+- Because we want to get information on users, 
+
+## How can I install and run the server-side environment **locally**?
 
 We'll be considering you're using a Linux 64-bit machine.
 

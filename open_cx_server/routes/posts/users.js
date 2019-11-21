@@ -23,7 +23,7 @@ router.get('/:postId', async (req, res) => {
   catch (err) {
     res.json({ message: err });
   }
-})
+});
 
 // Delete user from database
 router.delete('/:postId', async (req, res) => {
