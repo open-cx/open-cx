@@ -1,7 +1,7 @@
 const User = require('../../models/user');
 const tags = require('express').Router();
 
-tags.delete('/:postId', async (req, res) => {
+tags.post('/:postId', async (req, res) => {
     try {
         const user = await User.findById(req.params.postId);
 
@@ -9,7 +9,7 @@ tags.delete('/:postId', async (req, res) => {
             const removingTag = req.body[key];
             const elems = user[key];
             if(elems.indexOf(removingTag) != -1){
-                elems.pop(elems.indexOf(removingTag));
+                elems.splice(elems.indexOf(removingTag), 1);
             }
         });
         
@@ -29,10 +29,11 @@ tags.put('/:postId', async (req, res) => {
     try {
         const user = await User.findById(req.params.postId);
 
-        console.log(req.body);
         Object.keys(req.body).forEach((key) => {
             const elems = user[key];
-            elems.push(req.body[key]);
+            const newTag = req.body[key];
+            if(elems.indexOf(newTag) == -1)
+                elems.push(req.body[key]);
         })
 
         const savedUser = await User.findOneAndUpdate(req.params.postId, user);
