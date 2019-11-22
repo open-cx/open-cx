@@ -1,4 +1,5 @@
 let User = require('../../models/user');
+require('../../config/passport');
 
 const allUsers = require('express').Router();
 

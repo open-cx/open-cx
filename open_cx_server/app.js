@@ -13,6 +13,9 @@ const HOST = (process.env.HOST || "localhost");
 const DB_CONNECTION = (process.env.DB_CONNECTION || "mongodb://mongo:27017/testdb");
 const routes = require('./routes');
 
+// Configure Mongoose's promises to be global
+mongoose.Promise = global.Promise;
+
 // Middlewares
 app.use('/admin', require('./admin'))
 app.use(bodyParser.json());
