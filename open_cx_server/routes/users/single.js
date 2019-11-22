@@ -27,7 +27,6 @@ try {
 
 });
 
-
 singleUser.post('/:postId', async (req, res) => {
 //   res.send(req.params);
 
@@ -52,49 +51,6 @@ singleUser.post('/:postId', async (req, res) => {
         res.json({ message: err });
     }
 
-});
-
-singleUser.delete('/:postId', async (req, res) => {
-  try{
-    const removedUser = await User.deleteOne({_id: req.params.postId});
-
-    Object.keys(res.body).forEach((key) => {
-      const elems = removedUser[key];
-      elems.pop(elems.indexOf(res.body[key]));
-    })
-
-    const user = new User(removedUser);
-
-    const savedUser = await user.save();
-
-    res.json(savedUser);
-
-  }catch(err){
-    res.statusCode = 500;
-    res.json({message: err});
-  }
-});
-
-
-singleUser.delete('/:postId', async (req, res) => {
-  try{
-    const removedUser = await User.deleteOne({_id: req.params.postId});
-
-    Object.keys(res.body).forEach((key) => {
-      const elems = removedUser[key];
-      elems.push(res.body[key]);
-    })
-
-    const user = new User(removedUser);
-
-    const savedUser = await user.save();
-
-    res.json(savedUser);
-
-  }catch(err){
-    res.statusCode = 500;
-    res.json({message: err});
-  }
 });
 
 module.exports = singleUser;

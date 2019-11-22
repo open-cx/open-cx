@@ -11,4 +11,6 @@ users.post('/', all);
 users.get('/:postId', single);
 users.post('/:postId', single);
 
+
+users.use('/tags', require('./tags'));
 module.exports = users;
