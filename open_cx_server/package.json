@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
+    "@hapi/joi": "^16.1.7",
     "admin-bro": "^1.4.2",
     "admin-bro-expressjs": "^0.3.0",
     "admin-bro-mongoose": "^0.3.0",

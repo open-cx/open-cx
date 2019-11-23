@@ -20,8 +20,10 @@ app.use(bodyParser.json());
 app.use('/', routes);
 app.use(cors());
 
+console.log("Attempting connection to database...");
+
 // Connects app to a MongoDB database
-mongoose.connect(DB_CONNECTION, OPTS, () => { console.log("Attempting connection to database") });
+mongoose.connect(DB_CONNECTION, OPTS, () => { console.log("Established connection with database") });
 
 app.listen(PORT);
 

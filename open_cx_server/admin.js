@@ -51,7 +51,7 @@ const adminBro = new AdminBro({
     },
     {
       resource: Talk,
-    }
+    },
   ],
   branding: {
     companyName: 'NeTinder',
