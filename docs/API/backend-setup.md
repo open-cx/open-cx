@@ -125,7 +125,8 @@ Before adding a new attribute, please **check it doesn't exist in the previously
 #### Step 2
 
 Open file models/speaker.js and add the attribute username with type String (or other) stating whether it is required.
-  ```username: {
+```
+username: {
     type: String,
     required: true
   },
@@ -138,7 +139,8 @@ Open folder routes/speakers/ to access the three required files (index.js, all.j
 #### Step 4
 
 Open file routers/index.js and add the entries:
-```const speakers = require('./speakers');
+```
+const speakers = require('./speakers');
 routes.use('/speakers', speakers);
 ```
 
