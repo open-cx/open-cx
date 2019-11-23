@@ -15,6 +15,8 @@ We have deployed the API to a Heroku server. You can send requests to it through
 
 The way to exchange information with the API is very simple: you just append the location of one of the routers to the API link. 
 
+Importante note about the server: the server enters sleep mode when not accessed for 1 hour and thus, on that occasion, it will take 15-20 seconds to be executed. The following requests will be responded promptly.
+
 ## How can I install and run the server-side environment **locally**?
 
 We'll be considering you're using a Linux 64-bit machine.
