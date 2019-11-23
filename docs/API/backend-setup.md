@@ -118,11 +118,11 @@ If you want to add an attribute to an already existing schema, you should:
 
 For instance, in order to add an attribute username to the schema Speaker:
 
-#### Step 1
+#### Step 1 - Avoid rework
 
 Before adding a new attribute, please **check it doesn't exist in the previously created models**. Also, **before creating new routers, please check if there's already one that can serve your needs**.
 
-#### Step 2
+#### Step 2 - Model
 
 Open file models/speaker.js and add the attribute username with type String (or other) stating whether it is required.
 ```
@@ -132,11 +132,11 @@ username: {
   },
 ```
   
-#### Step 3
+#### Step 3 - API
 
 Open folder routes/speakers/ to access the three required files (index.js, all.js, single.js). On the all.js and single.js the business logic shall be implemented accordingly.
 
-#### Step 4
+#### Step 4 - routes' index.js
 
 Open file routers/index.js and add the entries:
 ```
