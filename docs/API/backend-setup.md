@@ -128,7 +128,8 @@ Open file models/speaker.js and add the attribute username with type String (or 
   ```username: {
     type: String,
     required: true
-  },```
+  },
+```
   
 #### Step 3
 
@@ -138,7 +139,8 @@ Open folder routes/speakers/ to access the three required files (index.js, all.j
 
 Open file routers/index.js and add the entries:
 ```const speakers = require('./speakers');
-routes.use('/speakers', speakers);```
+routes.use('/speakers', speakers);
+```
 
 ## How do I add a schema (analogous to a table) to the database?
 -  go to the **models** folder and create a new file similar to the already existing ones. For more information on how to create a schema, check the following link: https://mongoosejs.com/docs/guide.html;
