@@ -1,8 +1,8 @@
 let User = require('../../models/user');
-
+const verify = require('../auth/verifyToken');
 const singleUser = require('express').Router();
 
-singleUser.get('/:postId', async (req, res) => {
+singleUser.get('/:postId', verify, async (req, res) => {
 //   res.send("Get request on /users/id");
   try {
     const user = await User.findById(req.params.postId);
