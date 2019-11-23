@@ -149,6 +149,14 @@ routes.use('/speakers', speakers);
 
 - open the **app.js** file, and in the "Middlewares" section, add the file you have just created containing the new routers, using the app.use() method (check the existing code and procede analogously)
 
+- go to the **admin.js** file and add a new object to the **resources**  array of the **adminBro** object, following this structure:
+
+```Bash
+{
+  resource: NameOfTheSchema
+}
+```
+
 For some of the steps, the information on the last topic may be useful.
 
 ## How can I populate the database?
