@@ -103,7 +103,8 @@ You can use **Postman**. It's a great tool when trying to dissect RESTful APIs m
 - Fork the repository;
 - Make the changes you think are needed;
 - Create a pull request, choosing the **dev** branch as the merge target;
-- **Frequently** check out the pull request, as comments can be made and revisions can be requested in order for it to be approved.
+- **Frequently** check out the pull request, as comments can be made and revisions can be requested in order for it to be approved;
+- The pull request will be merged as soon as possible.
 
 ## How shall I add an attribute (analogous to a field on a database)?
 If you want to add an attribute to an already existing schema, you should:
@@ -115,17 +116,29 @@ If you want to add an attribute to an already existing schema, you should:
 - in the **routes/index.js** file add the new router you created.
 
 
-## How can I populate the database?
+For instance, in order to add an attribute username to the schema Speaker:
 
-Before adding a new attribute, please **check it doesn't already exists in the included models**. 
+####Step 1
 
-Also, **before creating new routers, please check if there's already one that can serve your needs**.
+Before adding a new attribute, please **check it doesn't exist in the previously created models**. Also, **before creating new routers, please check if there's already one that can serve your needs**.
 
-You can follow one of the two following alternatives:
+####Step 2
 
-- Access the API's admin interface through the address http://0.0.0.0:5000/admin/ and add new entries through it;
+Open file models/speaker.js and add the attribute username with type String (or other) stating whether it is required.
+  username: {
+    type: String,
+    required: true
+  },
+  
+####Step 3
 
-- Make a post request using, for example, Postman.
+Open folder routes/speakers/ to access the three required files (index.js, all.js, single.js). On the all.js and single.js the business logic shall be implemented accordingly.
+
+####Step 4
+
+Open file routers/index.js and add the entries:
+const speakers = require('./speakers');
+routes.use('/speakers', speakers);
 
 ## How do I add a schema (analogous to a table) to the database?
 -  go to the **models** folder and create a new file similar to the already existing ones. For more information on how to create a schema, check the following link: https://mongoosejs.com/docs/guide.html;
@@ -134,6 +147,15 @@ You can follow one of the two following alternatives:
 
 - open the **app.js** file, and in the "Middlewares" section, add the file you have just created containing the new routers, using the app.use() method (check the existing code and procede analogously)
 
+For some of the steps, the information on the last topic may be useful.
+
+## How can I populate the database?
+
+You can follow one of the two following alternatives:
+
+- Access the API's admin interface through the address http://0.0.0.0:5000/admin/ and add new entries through it;
+
+- Make a post request using, for example, Postman.
 
 ## What is and how shall I use the Active-admin platform?
 Active-admin is a platform that supports CRUD (create, retrieve, update, delete) operations and can be used in order to update database entries manually. It's a good way to populate the database using an interactive, browser-based UI. With the backend running, access http://0.0.0.0:2222/admin/.
