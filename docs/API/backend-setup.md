@@ -136,7 +136,7 @@ username: {
 
 Open folder routes/speakers/ to access the three required files (index.js, all.js, single.js). On the all.js and single.js the business logic shall be implemented accordingly.
 
-#### Step 4 - routes' index.js
+#### Step 4 - Routes' index.js
 
 Open file routers/index.js and add the entries:
 ```
