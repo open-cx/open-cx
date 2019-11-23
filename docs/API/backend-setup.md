@@ -9,14 +9,13 @@ The folder **open_cx_server** contains code linked to the backend of the main op
 
 Because we want the creation and deployment of our backend to be built on top of a common architecture, we will be allowing the usage of **Docker** containers, so that we can package up applications with all of the parts it needs - such as libraries and other dependencies - and ship it all out as one package. Although Docker integration won't be initially available, we will try our best to deliver it as soon as we possibly can.
 
-## How can I use the API?
+## How can I use the **remote** server?
 
 We have deployed the API to a Heroku server. You can send requests to it through the following link: open-cx.herokuapp.com/.
 
 The way to exchange information with the API is very simple: you just append the location of one of the routers to the API link. 
 
-The following is an example of how to get the whole information about every user in the database:
-- Because we want to get information on users, 
+Importante note about the server: the server enters sleep mode when not accessed for 1 hour and thus, on that occasion, it will take 15-20 seconds to be executed. The following requests will be responded promptly.
 
 ## How can I install and run the server-side environment **locally**?
 
@@ -103,7 +102,8 @@ You can use **Postman**. It's a great tool when trying to dissect RESTful APIs m
 - Fork the repository;
 - Make the changes you think are needed;
 - Create a pull request, choosing the **dev** branch as the merge target;
-- **Frequently** check out the pull request, as comments can be made and revisions can be requested in order for it to be approved.
+- **Frequently** check out the pull request, as comments can be made and revisions can be requested in order for it to be approved;
+- The pull request will be merged as soon as possible.
 
 ## How shall I add an attribute (analogous to a field on a database)?
 If you want to add an attribute to an already existing schema, you should:
@@ -114,18 +114,33 @@ If you want to add an attribute to an already existing schema, you should:
 
 - in the **routes/index.js** file add the new router you created.
 
+For instance, in order to add an attribute username to the schema Speaker:
 
-## How can I populate the database?
+#### Step 1 - Avoid rework
 
-Before adding a new attribute, please **check it doesn't already exists in the included models**. 
+Before adding a new attribute, please **check it doesn't exist in the previously created models**. Also, **before creating new routers, please check if there's already one that can serve your needs**.
 
-Also, **before creating new routers, please check if there's already one that can serve your needs**.
+#### Step 2 - Model
 
-You can follow one of the two following alternatives:
+Open file models/speaker.js and add the attribute username with type String (or other) stating whether it is required.
+```
+username: {
+    type: String,
+    required: true
+  },
+```
+  
+#### Step 3 - API
 
-- Access the API's admin interface through the address http://0.0.0.0:5000/admin/ and add new entries through it;
+Open folder routes/speakers/ to access the three required files (index.js, all.js, single.js). On the all.js and single.js the business logic shall be implemented accordingly.
 
-- Make a post request using, for example, Postman.
+#### Step 4 - Routes' index.js
+
+Open file routers/index.js and add the entries:
+```
+const speakers = require('./speakers');
+routes.use('/speakers', speakers);
+```
 
 ## How do I add a schema (analogous to a table) to the database?
 -  go to the **models** folder and create a new file similar to the already existing ones. For more information on how to create a schema, check the following link: https://mongoosejs.com/docs/guide.html;
@@ -134,6 +149,15 @@ You can follow one of the two following alternatives:
 
 - open the **app.js** file, and in the "Middlewares" section, add the file you have just created containing the new routers, using the app.use() method (check the existing code and procede analogously)
 
+For some of the steps, the information on the last topic may be useful.
+
+## How can I populate the database?
+
+You can follow one of the two following alternatives:
+
+- Access the API's admin interface through the address http://0.0.0.0:5000/admin/ and add new entries through it;
+
+- Make a post request using, for example, Postman.
 
 ## What is and how shall I use the Active-admin platform?
 Active-admin is a platform that supports CRUD (create, retrieve, update, delete) operations and can be used in order to update database entries manually. It's a good way to populate the database using an interactive, browser-based UI. With the backend running, access http://0.0.0.0:2222/admin/.
