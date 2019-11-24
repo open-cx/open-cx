@@ -24,6 +24,13 @@ app.use(cors());
 // Connects app to a MongoDB database
 mongoose.connect(process.env.DB_CONNECTION, OPTS, () => { console.log("Attempting connection to database") });
 
-app.listen(process.env.PORT || 5000);
+const server = app.listen(process.env.PORT || 5000);
+const io = require('socket.io')(server);
+const cache = require('./socket')(io);
+
+
+app.set('cache', cache);
+app.set('socketio', io);
+
 
 console.log(`Running on http://${HOST}:${PORT}`);
