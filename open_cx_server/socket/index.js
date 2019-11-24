@@ -7,7 +7,7 @@ module.exports = (io) => {
         console.log('User connected');
         const user = socket.handshake.headers['user_id'];
         if(user){
-            cache.set(user, socket);
+            cache.set(user, socket.id);
             socket.emit('success');
     
             socket.on('disconnect', () => {

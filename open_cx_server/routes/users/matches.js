@@ -7,10 +7,11 @@ matches.post('/request', async (req, res) => {
     const cache = req.app.get('cache');
     const receiver = req.body.id;
     const currentUser = req.body.user_id;
-    const socket = cache.get(receiver);
+    const socketId = cache.get(receiver);
+    const socket = req.app.get('socketio');
 
-    if(socket){
-        socket.emit(currentUser);
+    if(socketId){
+        socket.to(socketId).emit('friend_request', currentUser);
     } else {
         const friendRequest = new FriendRequest({
             receiver,
