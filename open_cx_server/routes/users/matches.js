@@ -11,9 +11,23 @@ async function storeFriendRequest(receiver, sender, unread){
     });
 
     await friendRequest.save();
-
 }
 
+
+matches.get('/:id', async (req, res) => {
+    const userId = req.params.id;
+
+    try {
+        const user = await User.findById(userId);
+        const matches = await Promise.all(user.matches.map(async (match) => {
+            return User.findById(match);
+        }));
+
+        res.json(matches);
+    } catch (err) {
+        
+    }
+});
 
 matches.post('/request', async (req, res) => {
     const cache = req.app.get('cache');
