@@ -150,9 +150,9 @@ username: {
   },
 ```
 
-#### Step 3 - API
+#### Step 3 - Routes
 
-Open folder routes/speakers/ to access the three required files (index.js, all.js, single.js). On the all.js and single.js the business logic shall be implemented accordingly.
+Open folder routes/speakers/ to access the three required files (index.js, all.js, single.js). On the all.js and single.js the business logic shall be implemented accordingly (first add the route to index.js and then write it down on all.js and single.js).
 
 ### How do I add a schema (analogous to a table) to the database?
 
