@@ -149,10 +149,24 @@ username: {
     required: true
   },
 ```
-  
+
 #### Step 3 - API
 
 Open folder routes/speakers/ to access the three required files (index.js, all.js, single.js). On the all.js and single.js the business logic shall be implemented accordingly.
+
+### How do I add a schema (analogous to a table) to the database?
+
+#### Step 1 - Avoid rework
+
+Before adding a new schema, please **check it doesn't exist in the previously created models**. Also, **before creating new routers, please check if there's already one that can serve your needs**.
+
+#### Step 2 - Model
+
+Go to the **models** folder and create a new file similar to the already existing ones. For more information on how to create a schema, check the following link: https://mongoosejs.com/docs/guide.html;
+
+#### Step 3 - Routes
+
+Add new routers in the **routes/** folder according to your needs.
 
 #### Step 4 - Routes' index.js
 
@@ -162,22 +176,19 @@ const speakers = require('./speakers');
 routes.use('/speakers', speakers);
 ```
 
-### How do I add a schema (analogous to a table) to the database?
--  go to the **models** folder and create a new file similar to the already existing ones. For more information on how to create a schema, check the following link: https://mongoosejs.com/docs/guide.html;
+#### Step 5 - app.js
 
-- add new routers in the **routes/posts** folder according to your needs;
+Open the **app.js** file, and in the "Middlewares" section, add the file you have just created containing the new routers, using the app.use() method (check the existing code and procede analogously)
 
-- open the **app.js** file, and in the "Middlewares" section, add the file you have just created containing the new routers, using the app.use() method (check the existing code and procede analogously)
+#### Step 6 - admin.js
 
-- go to the **admin.js** file and add a new object to the **resources**  array of the **adminBro** object, following this structure:
+Go to the **admin.js** file and add a new object to the **resources**  array of the **adminBro** object, following this structure:
 
 ```Bash
 {
   resource: NameOfTheSchema
 }
 ```
-
-For some of the steps, the information on the last topic may be useful.
 
 ### How can I populate the database?
 
@@ -188,6 +199,7 @@ You can follow one of the two following alternatives:
 - Make a post request using, for example, Postman, as mentioned above.
 
 ### How can I integrate my flutter app with the backend?
+
 Some documentation is available to help on this integration, for instance:
 - https://flutter.dev/docs/cookbook/networking/fetch-data
 
