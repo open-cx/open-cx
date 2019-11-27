@@ -93,7 +93,7 @@ Finally, let's get the backend up and running:
 npm start
 ```
 
-Your backend will now be available at address http://0.0.0.0:2222.
+Your backend will now be available at address http://0.0.0.0:5000.
 
 ### How does Docker work as of today?
 In order to use the API with Docker, one must perform one of these steps:
@@ -102,7 +102,7 @@ In order to use the API with Docker, one must perform one of these steps:
 2. To create the MongoDB database locally.
 
 ### What is and how shall I use the Active-admin platform?
-Active-admin is a platform that supports CRUD (create, retrieve, update, delete) operations and can be used in order to update database entries manually. It's a good way to populate the database using an interactive, browser-based UI. With the backend running, access http://0.0.0.0:2222/admin/. 
+Active-admin is a platform that supports CRUD (create, retrieve, update, delete) operations and can be used in order to update database entries manually. It's a good way to populate the database using an interactive, browser-based UI. With the backend running, access http://0.0.0.0:5000/admin/. 
 In order to access Active-admin, please add it to the app.js file and define its route.
 
 ### How can I access the Active-admin (CRUD) platform on the **remote** server?
