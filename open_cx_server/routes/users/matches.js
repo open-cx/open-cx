@@ -1,7 +1,6 @@
 const User = require('../../models/user');
 const FriendRequest = require('../../models/friend_request');
 const matches = require('express').Router();
-const ObjectId = require('mongoose').Types.ObjectId;
 
 async function storeFriendRequest(receiver, sender, unread){
     const friendRequest = new FriendRequest({
@@ -25,7 +24,26 @@ matches.get('/:id', async (req, res) => {
 
         res.json(matches);
     } catch (err) {
-        
+        res.json(err);
+    }
+});
+
+matches.get('/requests/:id', async (req, res) => {
+    const userId = req.params.id;
+
+    try {
+        const friendRequests = await FriendRequest.find({receiver: userId});
+        const matches = await Promise.all(friendRequests.map(async (request) => {
+            const user = await User.findById(request.sender);
+            return {
+                id: request.id,
+                user
+            };
+        }));
+
+        res.json(matches);
+    } catch (err) {
+        res.json(err);
     }
 });
 
@@ -58,7 +76,7 @@ matches.post('/request', async (req, res) => {
                 return;
             }
             if (socketId) {
-                socket.to(socketId).emit('friend_request', senderUser);
+                socket.to(socketId).emit('friend_request', user.fullname);
                 await storeFriendRequest(receiver, senderUser, false);
             } else {
                 await storeFriendRequest(receiver, senderUser, true);
@@ -112,6 +130,30 @@ matches.post('/accept', async (req, res) => {
     }
 
     res.send('Friend Accepted!');
+
+});
+
+
+matches.post('/reject', async (req, res) => {
+    const matchId = req.body.id;
+
+    try {
+        const match = await FriendRequest.findById(matchId);
+        if (!match) {
+            res.statusCode = 404;
+            res.send('Match not found!');
+            return;
+        }
+
+        
+        await FriendRequest.findByIdAndDelete(matchId);
+        
+    } catch (err) {
+        res.statusCode = 500;
+        res.json({ message: err });
+    }
+
+    res.send('Friend Rejected!');
 
 });
 
