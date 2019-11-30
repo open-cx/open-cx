@@ -28,6 +28,18 @@ matches.get('/:id', async (req, res) => {
     }
 });
 
+matches.get('/nomatched/:id', async (req, res) => {
+    const userId = req.params.id;
+
+    try {
+        const users = await User.find();
+        const nonMatchedUsers = users.filter(user => user.matches.indexOf(userId) == -1 && user.id != userId);
+        res.json(nonMatchedUsers);
+    } catch (err) {
+        res.json(err);
+    }
+});
+
 matches.get('/requests/:id', async (req, res) => {
     const userId = req.params.id;
 
