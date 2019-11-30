@@ -114,11 +114,11 @@ matches.post('/accept', async (req, res) => {
 
         senderUser.matches.push(receiverUser.id);
         receiverUser.matches.push(senderUser.id);
-        const socketId = cache.get(receiverUser.id);
+        const socketId = cache.get(senderUser.id);
 
 
         if(socketId)
-            socket.to(socketId).emit('friend_accepted', receiverUser);
+            socket.to(socketId).emit('friend_accepted', receiverUser.id);
 
         await User.findByIdAndUpdate(senderUser.id, senderUser);
         await User.findByIdAndUpdate(receiverUser.id, receiverUser);
