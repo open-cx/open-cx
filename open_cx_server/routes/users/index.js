@@ -15,4 +15,6 @@ users.post('/:postId', single);
 users.use('/tags', require('./tags'));
 
 users.use('/matches', require('./matches'));
+users.use('/description', require('./description'));
+users.use('/socials', require('./socials'));
 module.exports = users;
