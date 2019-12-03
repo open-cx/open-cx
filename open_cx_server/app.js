@@ -2,7 +2,6 @@
 
 require('dotenv/config');
 
-const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const OPTS = { useUnifiedTopology: true, useNewUrlParser: true };
 const express = require('express');
@@ -15,7 +14,8 @@ const routes = require('./routes');
 
 // Middlewares
 app.use('/admin', require('./admin'))
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded());
 
 app.use('/', routes);
 app.use(cors());
