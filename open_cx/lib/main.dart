@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:open_cx/guideasy_app/main.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         "/": (context) => HomePage(),
-        "/yourPage": (context) => YourProject()
+        "/yourPage": (context) => YourProject(),
+        "/navigation": (context) => GuideasyApp(),
       },
     );
   }
@@ -37,7 +39,9 @@ class HomePage extends StatelessWidget {
               Center(
                   child: Text("openCX",
                       style: TextStyle(fontSize: 32, color: Colors.white))),
-              MyButton(x: 14, y: 60, title: "Ex", onPressed: () {}),
+              MyButton(x: 14, y: 60, title: "Nav", onPressed: () {
+                Navigator.of(context).pushNamed("/navigation");
+              }),
               MyButton(
                   x: 40,
                   y: 30,
