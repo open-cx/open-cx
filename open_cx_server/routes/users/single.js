@@ -14,7 +14,7 @@ singleUser.get('/:postId', async (req, res) => {
 
 });
 
-singleUser.get('/:userId/matches', async (req, res) => {
+singleUser.get('/:userId/', async (req, res) => {
 
   try {
     //Gets all the tags of the specified user
@@ -26,6 +26,21 @@ singleUser.get('/:userId/matches', async (req, res) => {
     //Generates json object with Users that selected each of the tags
     for (tag in userTags) {
       const usersWithTag = await User.find({tags: tag});
+
+      model.find({ 
+
+        '_id': { $in: [ 
+        
+        mongoose.Types.ObjectId('4ed3ede8844f0f351100000c'),
+        
+        mongoose.Types.ObjectId('4ed3f117a844e0471100000d'), 
+        
+        mongoose.Types.ObjectId('4ed3f18132f50c491100000e') 
+        
+        ]} 
+        
+        },
+        
       tagsJson[i] = usersWithTag;
     }
 
