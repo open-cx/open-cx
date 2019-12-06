@@ -5,6 +5,12 @@ tags.post('/:postId', async (req, res) => {
     try {
         const user = await User.findById(req.params.postId);
 
+        if(!user){
+            res.statusCode = 404;
+            res.send('No user found');
+            return;
+        }
+
         Object.keys(req.body).forEach((key) => {
             const removingTag = req.body[key];
             const elems = user[key];
@@ -28,6 +34,12 @@ tags.post('/:postId', async (req, res) => {
 tags.put('/:postId', async (req, res) => {
     try {
         const user = await User.findById(req.params.postId);
+
+        if (!user) {
+            res.statusCode = 404;
+            res.send('No user found');
+            return;
+        }
 
         Object.keys(req.body).forEach((key) => {
             const elems = user[key];
