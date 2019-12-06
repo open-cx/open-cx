@@ -12,6 +12,12 @@ socials.delete('/:postId/:key', async (req, res) => {
     
     try {
         const user = await User.findById(req.params.postId);
+
+        if(!user){
+            res.statusCode = 404;
+            res.send("User not found.");
+            return;
+        }
         
             if(!user.socials[key]){
                 res.statusCode = 404;
@@ -50,7 +56,7 @@ socials.put('/:postId', async (req, res) => {
         const user = await User.findById(req.params.postId);
         
             if(user.socials[key]){
-                res.statusCode = 406;
+                res.statusCode = 406; 
                 res.send("User already has that social.");
                 return;
             }

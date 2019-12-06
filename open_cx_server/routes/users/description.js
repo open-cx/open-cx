@@ -10,6 +10,12 @@ description.post('/:postId', async (req, res) => {
     
     try {
         const user = await User.findById(req.params.postId);
+
+        if(!user){
+            res.statusCode = 404;
+            res.send("User not found.");
+            return;
+        }
         
         user.description = req.body.description;
         
