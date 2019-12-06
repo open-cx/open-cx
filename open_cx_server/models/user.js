@@ -31,7 +31,7 @@ const userSchema = mongoose.Schema({
     facebook: String,
     instagram: String,
     github: String,
-    linkedin: String,
+    linkedin: String, 
     twitter: String,
     youtube: String,
   },
