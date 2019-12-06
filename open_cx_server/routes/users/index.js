@@ -10,5 +10,6 @@ users.post('/', all);
 
 users.get('/:postId', single);
 users.post('/:postId', single);
+users.get('/:userId/matches', single);
 
 module.exports = users;
