@@ -1,6 +1,7 @@
 const User = require('../../models/user');
 const FriendRequest = require('../../models/friend_request');
 const matches = require('express').Router();
+const ObjectId = require('mongoose').Types.ObjectId;
 
 async function storeFriendRequest(receiver, sender, unread){
     const friendRequest = new FriendRequest({
@@ -65,7 +66,13 @@ matches.post('/request', async (req, res) => {
     const senderUser = req.body.user_id;
     const socketId = cache.get(receiver);
     const socket = req.app.get('socketio');
-    
+
+    if(!ObjectId.isValid(receiver) || !ObjectId.isValid(senderUser)){
+        res.statusCode = 400;
+        res.send('Bad ids');
+        return;
+    }
+
     try {
         
         const user = await User.findById(senderUser);

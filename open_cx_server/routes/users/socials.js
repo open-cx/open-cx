@@ -25,12 +25,8 @@ socials.delete('/:postId/:key', async (req, res) => {
                 return;
             }
             
-            console.log(user.socials[key]);
-
-            user.socials[key] = null;
-            
-            console.log(user.socials[key]);
-
+            user.socials[key] = undefined;
+    
         const savedUser = await User.findByIdAndUpdate(req.params.postId, user);
 
 
