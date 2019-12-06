@@ -32,6 +32,8 @@ auth.post('/register', async (req, res) => {
   });
 
   try {
+    const savedPost = await user.save();
+    console.log(savedPost);
     res.send({
       user: user._id
     });
@@ -51,11 +53,11 @@ auth.post('/login', async (req, res) => {
   const user = await User.findOne({
     email: req.body.email
   });
-  if (!user) return res.status(400).send('Invalid email and/or password');
+  if (!user) return res.status(400).send('Invalid email');
 
   // Password is correct
   const validPassword = await bcrypt.compare(req.body.password, user.password);
-  if (!validPassword) return res.status(400).send('Invalid email and/or password');
+  if (!validPassword) return res.status(400).send('Invalid password');
 
   // Create and assign a JSON web token
   const token = jwt.sign({
