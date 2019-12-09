@@ -27,17 +27,17 @@ final Store<AppState> state = Store<AppState>(appReducers,
 
 void main() {
   DotEnv().load('.env');
-  runApp(new MyApp());
+  runApp(new Communio());
 }
 
-class MyApp extends StatefulWidget {
+class Communio extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return MyAppState();
   }
 }
 
-class MyAppState extends State<MyApp> {
+class MyAppState extends State<Communio> {
   WidgetsBindingObserver lifeCycleEventHandler;
 
   @override

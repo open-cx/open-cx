@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:open_cx/guideasy_app/main.dart';
+import 'package:open_cx/communio/main.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         "/": (context) => HomePage(),
         "/yourPage": (context) => YourProject(),
         "/navigation": (context) => GuideasyApp(),
+        "/networking": (context) => Communio(),
       },
     );
   }
@@ -42,13 +44,9 @@ class HomePage extends StatelessWidget {
               MyButton(x: 14, y: 60, title: "Nav", onPressed: () {
                 Navigator.of(context).pushNamed("/navigation");
               }),
-              MyButton(
-                  x: 40,
-                  y: 30,
-                  title: "Here",
-                  onPressed: () {
-                    Navigator.of(context).pushNamed("/yourPage");
-                  }),
+              MyButton(x: 30, y: 60, title: "Netw", onPressed: () {
+                Navigator.of(context).pushNamed("/networking");
+              }),
             ],
           ),
         ),
