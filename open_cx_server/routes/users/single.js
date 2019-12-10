@@ -14,39 +14,36 @@ singleUser.get('/:postId', async (req, res) => {
 
 });
 
-singleUser.get('/:userId/', async (req, res) => {
+singleUser.get('/:userId/matches', async (req, res) => {
 
   try {
     //Gets all the tags of the specified user
     const user = await User.findById(req.params.userId);
     var userTags = user['tags'];
     var tagsJson = {}
-    var i=0;
+    var k=0;
 
     //Generates json object with Users that selected each of the tags
-    for (tag in userTags) {
-      const usersWithTag = await User.find({tags: tag});
+    for (i=0; i < userTags.length; i++) {
 
-      model.find({ 
+      const usersWithTag = await User.find({ $and: [ {tags: userTags[i]}, { _id: { $ne: req.params.userId}} ] });
 
-        '_id': { $in: [ 
-        
-        mongoose.Types.ObjectId('4ed3ede8844f0f351100000c'),
-        
-        mongoose.Types.ObjectId('4ed3f117a844e0471100000d'), 
-        
-        mongoose.Types.ObjectId('4ed3f18132f50c491100000e') 
-        
-        ]} 
-        
-        },
-        
-      tagsJson[i] = usersWithTag;
-    }
+      
+      if (usersWithTag.length) {
 
-    //Sends response
-    res.json(userTags);
+        for (j=0; j < usersWithTag.length; j++) {
+          // console.log(usersWithTag[j]["username"]);
+          tagsJson[usersWithTag[j]["username"]] = usersWithTag[j];
+          k++;
+        }
+
+      }
   }
+  
+    //Sends response
+    res.json(tagsJson);
+  }
+
   catch (err) {
     res.json({ message: err });
   }
