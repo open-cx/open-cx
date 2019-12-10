@@ -1,0 +1,50 @@
+let POI = require('../../models/poi');
+
+const singlePOI = require('express').Router();
+
+singlePOI.get('/:postId', async (req, res) => {
+//   res.send("Get request on /users/id");
+  try {
+    const poi = await POI.findById(req.params.postId);
+    res.json(poi);
+  }
+  catch (err) {
+    res.json({ message: err });
+  }
+
+});
+
+singlePOI.delete('/:postId', async (req, res) => {
+//   res.send(req.params);
+
+try {
+    const removedPost = await POI.remove({ _id: req.params.postId });
+    res.json(removedPost);
+  }
+  catch (err) {
+    res.json({ message: err });
+  }
+
+});
+
+
+singlePOI.post('/:postId', async (req, res) => {
+//   res.send(req.params);
+
+    const poi = new POI({
+      latitude: req.body.latitude,
+      longitude: req.body.longitude,
+      floor: req.body.floor,
+    });
+
+    try {
+        const savedPost = await poi.save();
+        res.json(savedPost);
+    }
+    catch (err) {
+        res.json({ message: err });
+    }
+
+});
+
+module.exports = singlePOI;

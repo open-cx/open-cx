@@ -6,7 +6,11 @@ const eventSchema = mongoose.Schema({
     required: true
   },
   description: String,
-  location: {
+    locationID: {
+      type: Number,
+      required: true
+    },
+  room: {
     type: String,
     required: true
   },

@@ -27,5 +27,4 @@ allParticipants.post('/', async (req, res) => {
 
 });
 
-
 module.exports = allParticipants;
