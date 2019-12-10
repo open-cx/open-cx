@@ -3,6 +3,7 @@
 require("dotenv/config");
 const verify = require("./routes/auth/verifyToken");
 
+<<<<<<< HEAD
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 let OPTS = {
@@ -14,6 +15,11 @@ let OPTS = {
   connectTimeoutMS: 30000
 };
 const express = require("express");
+=======
+const mongoose = require('mongoose');
+const OPTS = { useUnifiedTopology: true, useNewUrlParser: true };
+const express = require('express');
+>>>>>>> dev
 const app = express();
 const cors = require("cors");
 const PORT = process.env.PORT || 5000;
@@ -23,9 +29,17 @@ const DB_CONNECTION =
 const routes = require("./routes");
 
 // Middlewares
+<<<<<<< HEAD
 app.use("/admin", require("./admin"));
 app.use(bodyParser.json());
 app.use("/", routes);
+=======
+app.use('/admin', require('./admin'))
+app.use(express.json());
+app.use(express.urlencoded());
+
+app.use('/', routes);
+>>>>>>> dev
 app.use(cors());
 
 console.log("Attempting connection to database...");
