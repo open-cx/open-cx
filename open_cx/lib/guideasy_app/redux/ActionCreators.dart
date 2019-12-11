@@ -22,7 +22,7 @@ ThunkAction<AppState> getRemotePointsOfInterest() {
       
       // retrieve points of interest
       List<PointOfInterest> pointsOfInterest = new List<PointOfInterest>();
-      String jsonString = await rootBundle.loadString('assets/locations_db/locations.json');
+      String jsonString = await rootBundle.loadString('assets/guideasy_app/locations_db/locations.json');
       Map parsedJson = json.decode(jsonString);
       
       var categoryJson = parsedJson['locations'] as List;

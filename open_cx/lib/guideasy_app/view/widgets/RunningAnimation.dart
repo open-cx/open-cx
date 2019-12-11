@@ -58,7 +58,7 @@ class RunningAnimationState extends State<RunningAnimation> with SingleTickerPro
   Widget build(BuildContext context) {
     return Transform.translate(
       child: Image(
-        image: AssetImage('assets/splash_screen/running_gif.gif'),
+        image: AssetImage('assets/guideasy_app/splash_screen/running_gif.gif'),
         width: widget.width,
         height: widget.height,
       ),
