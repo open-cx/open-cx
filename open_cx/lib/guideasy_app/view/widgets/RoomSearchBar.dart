@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:async';
 import 'dart:core';
 
 import 'package:autocomplete_textfield/autocomplete_textfield.dart';
@@ -44,7 +43,8 @@ class _RoomSearchBarState extends State<RoomSearchBar> {
     return StoreConnector<AppState, List<PointOfInterest>>(
         converter: (store) => store.state.content['pointsOfInterest'],
         builder: (BuildContext context, List<PointOfInterest> pointsOfInterest) {
-          searchTextField = AutoCompleteTextField<PointOfInterest>(
+
+          searchTextField = new AutoCompleteTextField<PointOfInterest>(
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.all(0),
                 prefixIcon: Icon(
@@ -75,7 +75,6 @@ class _RoomSearchBarState extends State<RoomSearchBar> {
                   .body2,
               clearOnSubmit: true,
               itemBuilder: (context, item) {
-
                 String distance = "?";
                 if (_gpsPosition != null) {
                   MapPosition poiPos = MapPosition(item.latitude, item.longitude);
@@ -122,6 +121,7 @@ class _RoomSearchBarState extends State<RoomSearchBar> {
                 );
               },
               itemFilter: (item, query) {
+
                 bool q1 = item.title
                     .toLowerCase()
                     .startsWith(query.toLowerCase());
@@ -138,7 +138,7 @@ class _RoomSearchBarState extends State<RoomSearchBar> {
               },
               itemSorter: (a, b) {
                 if (_gpsPosition == null) return a.title.compareTo(b.title);
-                
+
                 int dist1 = _gpsPosition.distanceTo(MapPosition(a.latitude, a.longitude)).round();
                 int dist2 = _gpsPosition.distanceTo(MapPosition(b.latitude, b.longitude)).round();
                 return dist1.compareTo(dist2);
@@ -146,19 +146,24 @@ class _RoomSearchBarState extends State<RoomSearchBar> {
               key: key,
               itemSubmitted: (item) {
                 setState(() =>
-                  searchTextField.textField.controller.text = item.title
+                searchTextField.textField.controller.text = item.title
                 );
 
                 StoreProvider.of<AppState>(context).dispatch(new UpdateMapFiltersAction(new Map<POIType, bool>()));
 
                 PointOfInterest target = item;
                 Navigator.pushNamed(
-                  context,
-                  mapRoute,
-                  arguments: MapPageArguments(target, ""));
+                    context,
+                    mapRoute,
+                    arguments: MapPageArguments(target, ""));
               },
               suggestions: pointsOfInterest
           );
+
+          Future.delayed(const Duration(milliseconds: 1000), () {
+            updatePointsOfInterest(context);
+          });
+
           return searchTextField;
         }
     );
@@ -170,5 +175,10 @@ class _RoomSearchBarState extends State<RoomSearchBar> {
       return Geolocator().getCurrentPosition(desiredAccuracy: LocationAccuracy.bestForNavigation);
     else
       return await Geolocator().getLastKnownPosition(desiredAccuracy: LocationAccuracy.bestForNavigation);
-    }
+  }
+
+  void updatePointsOfInterest(BuildContext context) async {
+    List<PointOfInterest> pointsOfInterest = StoreProvider.of<AppState>(context).state.content['pointsOfInterest'];
+    searchTextField.updateSuggestions(pointsOfInterest);
+  }
 }
