@@ -19,12 +19,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  google_maps_flutter: ^0.5.5 #guideeasy_app
+  google_maps_flutter: ^0.5.5 #guideasy_app
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
-  #guideeasy_app
+  #guideasy_app
   autocomplete_textfield: ^1.6.4
   sqflite: ^1.1.7+1
   path_provider: ^1.4.0
@@ -34,19 +34,19 @@ dependencies:
   flutter_gherkin: ^1.1.4
   fluttertoast: ^3.1.3
   connectivity: ^0.4.5
-  #guideeasy_app
+  #guideasy_app
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: ^0.7.4 #guideeasy_app
+  flutter_launcher_icons: ^0.7.4 #guideasy_app
 
-#guideeasy_app
+#guideasy_app
 flutter_icons:
   image_path: 'assets/guideasy_app/icon.png'
   android: true
   ios: true
-#guideeasy_app
+#guideasy_app
 
 
 # For information on the generic Dart part of this file, see the
@@ -62,8 +62,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/guideasy_app/splash_screen/ #guideeasy_app
-    - assets/guideasy_app/locations_db/ #guideeasy_app
+    - assets/guideasy_app/splash_screen/ #guideasy_app
+    - assets/guideasy_app/locations_db/ #guideasy_app
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
