@@ -1,5 +1,3 @@
-let User = require('../../models/user');
-
 const users = require('express').Router();
 
 const all = require('./all');

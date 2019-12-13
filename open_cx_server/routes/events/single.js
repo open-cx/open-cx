@@ -1,5 +1,3 @@
-let Event = require('../../models/event');
-
 const singleEvent = require('express').Router();
 
 singleEvent.get('/:postId', async (req, res) => {
