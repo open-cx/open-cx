@@ -1,0 +1,7 @@
+imports:
+    - { resource: ./../config/default.yml }
+
+security:
+    firewalls:
+        default:
+            http_basic: ~
