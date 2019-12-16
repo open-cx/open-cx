@@ -6,9 +6,9 @@ const eventSchema = mongoose.Schema({
     required: true
   },
   description: String,
-  locationID: {
-    type: String,
-    required: true
+  speaker : {
+    type : String,
+    required : true,
   },
   room: {
     type: String,
@@ -18,9 +18,8 @@ const eventSchema = mongoose.Schema({
     type: Date,
     required: true
   },
-  endDate: {
-    type: Date,
-    required: true
+  tags: {
+    type:[String]
   }
 });
 
