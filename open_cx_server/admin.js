@@ -11,7 +11,6 @@ const Speaker = require('./models/speaker');
 const Talk = require('./models/talk');
 const POI = require('./models/poi');
 
-
 AdminBro.registerAdapter(AdminBroMongoose)
 const adminBro = new AdminBro({
   rootPath: '/admin',
@@ -60,6 +59,20 @@ const adminBro = new AdminBro({
   branding: {
     companyName: 'NeTinder',
     softwareBrothers: false
+  },
+  actions: {
+    new: {
+      before: async (request) => {
+        if(request.payload.record.password) {
+          request.payload.record = {
+            ...request.payload.record,
+            encryptedPassword: await bcrypt.hash(request.payload.record.password, 10),
+            password: undefined,
+          }
+        }
+        return request
+      },
+    }
   }
 })
 

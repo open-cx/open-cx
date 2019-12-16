@@ -1,5 +1,3 @@
-let Talk = require('../../models/talk');
-
 const talks = require('express').Router();
 
 const all = require('./all');
