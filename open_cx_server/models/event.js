@@ -6,7 +6,7 @@ const eventSchema = mongoose.Schema({
     required: true
   },
   description: String,
-  locationID: {
+  poiId: {
     type: String,
     required: true
   },

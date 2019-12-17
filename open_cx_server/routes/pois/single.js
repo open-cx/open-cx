@@ -14,20 +14,6 @@ singlePOI.get('/:postId', async (req, res) => {
 
 });
 
-singlePOI.delete('/:postId', async (req, res) => {
-//   res.send(req.params);
-
-try {
-    const removedPost = await POI.remove({ _id: req.params.postId });
-    res.json(removedPost);
-  }
-  catch (err) {
-    res.json({ message: err });
-  }
-
-});
-
-
 singlePOI.post('/:postId', async (req, res) => {
 //   res.send(req.params);
 
