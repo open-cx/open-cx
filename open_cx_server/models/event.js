@@ -6,14 +6,6 @@ const eventSchema = mongoose.Schema({
     required: true
   },
   description: String,
-  speaker : {
-    type: String,
-    required: true
-  },
-  poiId: {
-    type: Number,
-    required: true
-  },
   room: {
     type: String,
     required: true

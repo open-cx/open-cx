@@ -12,6 +12,7 @@ const Talk = require('./models/talk');
 const POI = require('./models/poi');
 const Place = require('./models/place');
 const Connection = require('./models/connection');
+const Workshop = require('./models/workshop');
 
 AdminBro.registerAdapter(AdminBroMongoose)
 const adminBro = new AdminBro({
@@ -62,6 +63,9 @@ const adminBro = new AdminBro({
     },
     {
       resource: Connection,
+    },
+    {
+      resource: Workshop,
     }
   ],
   branding: {

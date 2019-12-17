@@ -15,9 +15,13 @@ allTalks.get('/', async (req, res) => {
   allTalks.post('/', async (req, res) => {
     const talk = new Talk({
       date: req.body.date,
+      speaker: req.body.speaker,
+      poiId: req.body.poiId,
+      room: req.body.room,
       initial_time: req.body.initial_time,
       final_time: req.body.final_time,
-      description: req.body.description
+      description: req.body.description,
+      tags: req.body.tags,
     });
   
     try {

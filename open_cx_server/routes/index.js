@@ -10,6 +10,7 @@ const talks = require('./talks');
 const pois = require('./pois');
 const places = require('./places');
 const connections = require('./connections');
+const workshops = require('./workshops');
 
 routes.get('/', (req, res) => {
   res.status(200).json({ message: 'Bem vindos ao root directory do servidor do projeto open-cx!\nPara informações relativas à utilização da API e da base de dados, por favor consultem a documentação fornecida no repositório do open-cx.\n\n' });
@@ -25,5 +26,6 @@ routes.use('/talks', talks);
 routes.use('/pois', pois);
 routes.use('/places', places);
 routes.use('/connections', connections);
+routes.use('/workshops', workshops);
 
 module.exports = routes;

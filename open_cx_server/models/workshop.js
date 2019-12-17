@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const talkSchema = mongoose.Schema({
+const workshopSchema = mongoose.Schema({
   talkName: {
     type: String,
     required: true
@@ -33,4 +33,4 @@ const talkSchema = mongoose.Schema({
   }
 });
 
-module.exports = talk = mongoose.model('Talk', talkSchema);
+module.exports = workshop = mongoose.model('Workshop', workshopSchema);
