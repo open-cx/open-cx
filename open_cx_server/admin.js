@@ -11,6 +11,7 @@ const Speaker = require('./models/speaker');
 const Talk = require('./models/talk');
 const POI = require('./models/poi');
 const Place = require('./models/place');
+const Connection = require('./models/connection');
 
 AdminBro.registerAdapter(AdminBroMongoose)
 const adminBro = new AdminBro({
@@ -58,10 +59,13 @@ const adminBro = new AdminBro({
     },
     {
       resource: Place,
+    },
+    {
+      resource: Connection,
     }
   ],
   branding: {
-    companyName: 'NeTinder',
+    companyName: 'SimplyFind',
     softwareBrothers: false
   },
   actions: {

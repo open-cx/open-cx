@@ -11,7 +11,7 @@ const eventSchema = mongoose.Schema({
     required: true
   },
   poiId: {
-    type: String,
+    type: Number,
     required: true
   },
   room: {

@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const poiSchema = mongoose.Schema({
+  poiId: {
+    type: Number,
+    required: true
+  },
   latitude: {
     type: Number,
     required: true
