@@ -6,6 +6,10 @@ const eventSchema = mongoose.Schema({
     required: true
   },
   description: String,
+  speaker : {
+    type: String,
+    required: true
+  },
   poiId: {
     type: String,
     required: true
