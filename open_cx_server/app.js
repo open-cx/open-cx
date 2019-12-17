@@ -14,6 +14,8 @@ const participantsRoute = require('./routes/posts/participants');
 const questionsRoute = require('./routes/posts/questions');
 const speakersRoute = require('./routes/posts/speakers');
 const talksRoute = require('./routes/posts/talks');
+const poisRoute = require('./routes/posts/pois');
+const poiTypesRoute = require('./routes/posts/poi_types');
 const cors = require('cors');
 const PORT = 2222;
 const HOST = '0.0.0.0';
@@ -28,6 +30,8 @@ app.use('/posts/participant', participantsRoute);
 app.use('/posts/question', questionsRoute);
 app.use('/posts/speaker', speakersRoute);
 app.use('/posts/talk', talksRoute);
+app.use('/posts/poi', poisRoute);
+app.use('/posts/poi_type', poiTypesRoute);
 app.use(cors());
 
 // Get request

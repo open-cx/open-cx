@@ -9,6 +9,8 @@ const Participant = require('./models/participant');
 const Question = require('./models/question');
 const Speaker = require('./models/speaker');
 const Talk = require('./models/talk');
+const POI = require('./models/poi');
+const POIType = require('./models/poi_type');
 
 
 AdminBro.registerAdapter(AdminBroMongoose)
@@ -51,10 +53,16 @@ const adminBro = new AdminBro({
     },
     {
       resource: Talk,
+    },
+    {
+      resource: POI,
+    },
+    {
+      resource: POIType
     }
   ],
   branding: {
-    companyName: 'NeTinder',
+    companyName: 'Guideasy',
     softwareBrothers: false
   }
 })
