@@ -40,7 +40,7 @@ class OkDialog extends CustomDialog {
         new FlatButton(
           child: new Text("Ok"),
           onPressed: () {
-            Navigator.of(context).pop();
+            Navigator.of(context, rootNavigator: true).pop();
           },
         ),
       ]
@@ -56,14 +56,14 @@ class ConfirmDialog extends CustomDialog {
         new FlatButton(
           child: new Text("Yes"),
           onPressed: () {
-            Navigator.of(context).pop();
+            Navigator.of(context, rootNavigator: true).pop();
             yesPressed();
           },
         ),
         new FlatButton(
           child: new Text("No"),
           onPressed: () {
-            Navigator.of(context).pop();
+            Navigator.of(context, rootNavigator: true).pop();
             noPressed();
           },
         ),

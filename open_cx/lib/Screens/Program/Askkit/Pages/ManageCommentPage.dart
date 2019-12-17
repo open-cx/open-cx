@@ -81,8 +81,8 @@ abstract class ManageCommentPage extends StatelessWidget {
           title: "Are you sure?",
           content: "This will discard your comment.",
           actions: <Widget>[
-            FlatButton(child: Text("Cancel"), onPressed: () { Navigator.of(context).pop(false);}),
-            FlatButton(child: Text("Discard"), onPressed: () { Navigator.of(context).pop(true); }),
+            FlatButton(child: Text("Cancel"), onPressed: () { Navigator.of(context, rootNavigator: true).pop(false);}),
+            FlatButton(child: Text("Discard"), onPressed: () { Navigator.of(context, rootNavigator: true).pop(true); }),
           ],
     ).show() ?? false;
   }

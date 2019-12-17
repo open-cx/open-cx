@@ -49,11 +49,13 @@ class MyController implements DatabaseController {
   @override
   Future<void> editAnswer(Answer answer, String newAnswer) {
     answer.content = newAnswer;
+    answer.edited = true;
   }
 
   @override
   Future<void> editQuestion(Question question, String newQuestion) {
     question.content = newQuestion;
+    question.edited = true;
   }
 
   @override
