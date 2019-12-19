@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_cx/Screens/Search/BluetoothSearchScreen.dart';
 
 import '../../Components/AccountButton.dart';
 import '../../Model/Talk.dart';
@@ -79,6 +80,15 @@ class ProgramPageState extends State<ProgramPage> {
                   title: Text('Favorite talks'),
                   onTap: () { Navigator.pop(context); changePage(UserTalksPage(talkList), "Favorite talks"); }
                 ),
+                ListTile(
+                  leading: Icon(Icons.bluetooth),
+                  title: Text('Session Search'),
+                  onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+                        return new BluetoothSearchScreen();
+                      }));
+                  }
+                )
               ]
           )
       ),
