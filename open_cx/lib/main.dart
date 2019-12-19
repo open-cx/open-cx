@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'AgendApp.dart';
+import 'program/AgendApp.dart';
 import 'package:flutter/services.dart';
-import 'package:open_cx/guideasy_app/main.dart';
+import 'package:open_cx/navigation/main.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -22,7 +22,8 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => HomePage(),
         "/yourPage": (context) => YourProject(),
-        "/agendAppMain": (context) => AgendAppMain()
+        "/agendAppMain": (context) => AgendAppMain(),
+        "/navigationMain": (context) => GuideasyApp()
       },
     );
   }
@@ -42,7 +43,8 @@ class HomePage extends StatelessWidget {
                       style: TextStyle(fontSize: 32, color: Colors.white))),
               MyButton(x: 14, y: 60, title: "Ex", onPressed: () {}),
               MyButton(x: 40, y: 30, title: "Here", onPressed: () => Navigator.of(context).pushNamed("/agendAppMain")),
-              MyButton(x: 70, y: 60, title: "AgendAppskkit", onPressed: () => Navigator.of(context).pushNamed("/agendAppMain"))
+              MyButton(x: 70, y: 60, title: "AgendAppskkit", onPressed: () => Navigator.of(context).pushNamed("/agendAppMain")),
+              MyButton(x: 60, y: 80, title: "Guideasy", onPressed: () => Navigator.of(context).pushNamed("/navigationMain"))
             ],
           ),
         ),
