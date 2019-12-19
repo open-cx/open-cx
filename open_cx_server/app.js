@@ -18,6 +18,12 @@ const cors = require('cors');
 const PORT = 2222;
 const HOST = '0.0.0.0';
 
+
+// Connects app to a MongoDB database
+mongoose.connect("localhost:27017", { useNewUrlParser: true,
+  useCreateIndex: true }).then(startExpress);
+
+function startExpress() {
 // Middlewares
 app.use('/admin', require('./admin'))
 app.use(bodyParser.json());
@@ -35,8 +41,8 @@ app.get('/', (req, res) => {
   res.send("Root directory\n");
 });
 
-// Connects app to a MongoDB database
-mongoose.connect(process.env.DB_CONNECTION, OPTS, () => { console.log("Attempting connection to database") });
-
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
+
+}
+

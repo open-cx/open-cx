@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'package:open_cx/HelpPage.dart';
+import 'package:open_cx/VenuePage.dart';
+import 'package:open_cx/PeoplePage.dart';
+import 'package:open_cx/ProgramPage.dart';
+
+
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     statusBarColor: Color.fromRGBO(3, 44, 115, 1), // status bar color
@@ -19,7 +25,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         "/": (context) => HomePage(),
-        "/yourPage": (context) => YourProject()
+        "/yourPage": (context) => MyStatefulWidget()
       },
     );
   }
@@ -41,7 +47,7 @@ class HomePage extends StatelessWidget {
               MyButton(
                   x: 40,
                   y: 30,
-                  title: "Here",
+                  title: "Main Screen",
                   onPressed: () {
                     Navigator.of(context).pushNamed("/yourPage");
                   }),
@@ -79,15 +85,77 @@ class MyButton extends StatelessWidget {
   }
 }
 
-class YourProject extends StatelessWidget {
+class MyStatefulWidget extends StatefulWidget {
+  MyStatefulWidget({Key key}) : super(key: key);
+
+  @override
+  YourProject createState() => YourProject();
+}
+
+class YourProject extends State<MyStatefulWidget> {
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Index 0: Program',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 1: Venue',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 2: People',
+      style: optionStyle,
+    ),
+    ];
+
+  final List<Widget> _children = [
+    ProgramPage(),
+    VenuePage(),
+    PeoplePage(),
+    HelpPage()
+  ];
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Your Project"),
+        title: Text("<Programming> 2020"),
       ),
       body: Center(
-        child: Text("MyApp"),
+        child: _children.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.schedule),
+            title: Text('Program'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.theaters),
+            title: Text('Venue'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.people),
+            title: Text('People'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.help),
+            title: Text('Help'),
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: _onItemTapped,
+        unselectedItemColor: Color.fromRGBO(3, 44, 115, 1),
+        unselectedLabelStyle: TextStyle(color: Color.fromRGBO(3, 44, 115, 1)),
+        showUnselectedLabels: true,
       ),
     );
   }

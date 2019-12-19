@@ -4,6 +4,14 @@ const participantSchema = mongoose.Schema({
   username: {
     type: String,
     required: true
+  },
+  checkedIn: {
+    type: Boolean,
+    default: false
+  },
+  delivered: {
+    type: Boolean,
+    default: false
   }
 });
 
