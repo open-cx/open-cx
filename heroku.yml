@@ -1,0 +1,5 @@
+build:
+  docker:
+    web: open_cx_server/Dockerfile
+run:
+  web: npm start

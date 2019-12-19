@@ -11,6 +11,7 @@ const Speaker = require('./models/speaker');
 const Talk = require('./models/talk');
 const POI = require('./models/poi');
 const POIType = require('./models/poi_type');
+const FriendRequest = require('./models/friend_request');
 
 AdminBro.registerAdapter(AdminBroMongoose)
 const adminBro = new AdminBro({
@@ -58,6 +59,9 @@ const adminBro = new AdminBro({
     },
     {
       resource: POIType
+    },
+    {
+      resource: FriendRequest
     }
   ],
   branding: {
