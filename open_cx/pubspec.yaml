@@ -13,6 +13,19 @@ description: openCX
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 version: 1.0.0+1
 
+cloud_firestore: 0.7.3
+firebase_admob: 0.5.5
+firebase_auth: 0.5.11
+google_sign_in: 3.0.4
+firebase_analytic: 1.0.1
+firebase_core: 0.2.4
+firebase_database: 1.0.1
+firebase_dynamic_links: 0.02
+firebase_messaging: 1.0.2
+firebase_performance: 0.0.3
+firebase_remote_config: 0.0.4
+firebase_storage: 0.3.7
+
 environment:
   sdk: ">=2.1.0 <3.0.0"
 
@@ -20,6 +33,14 @@ dependencies:
   flutter:
     sdk: flutter
   google_maps_flutter: ^0.5.5 #guideasy_app
+  intl: ^0.15.8
+  firebase_messaging:
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  flutter_local_notifications: ^0.8.4+3
+  flutter_markdown: ^0.3.2
+  url_launcher: ^5.2.7
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -62,14 +83,14 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/images/porto.png
     - assets/guideasy_app/splash_screen/ #guideasy_app
     - assets/guideasy_app/locations_db/ #guideasy_app
-
   # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/assets-and-images/#resolution-aware.
+  # https://flutter.io/assets-and-images/#resolution-aware.
 
   # For details regarding adding assets from package dependencies, see
-  # https://flutter.dev/assets-and-images/#from-packages
+  # https://flutter.io/assets-and-images/#from-packages
 
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
@@ -86,9 +107,12 @@ flutter:
         - asset: fonts/guideasy_app/Roboto-Light.ttf
         - asset: fonts/guideasy_app/Roboto-Medium.ttf
         - asset: fonts/guideasy_app/Roboto-Thin.ttf
+    - family: Ubuntu
+      fonts:
+        - asset: assets/fonts/Ubuntu-Regular.ttf
     - family:  GuideasyIcons
       fonts:
         - asset: fonts/guideasy_app/GuideasyIcons.ttf
   #
   # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+  # see https://flutter.io/custom-fonts/#from-packages

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'AgendApp.dart';
 import 'package:flutter/services.dart';
 import 'package:open_cx/guideasy_app/main.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => HomePage(),
         "/yourPage": (context) => YourProject(),
-        "/navigation": (context) => GuideasyApp(),
+        "/agendAppMain": (context) => AgendAppMain()
       },
     );
   }
@@ -39,16 +40,9 @@ class HomePage extends StatelessWidget {
               Center(
                   child: Text("openCX",
                       style: TextStyle(fontSize: 32, color: Colors.white))),
-              MyButton(x: 14, y: 60, title: "Nav", onPressed: () {
-                Navigator.of(context).pushNamed("/navigation");
-              }),
-              MyButton(
-                  x: 40,
-                  y: 30,
-                  title: "Here",
-                  onPressed: () {
-                    Navigator.of(context).pushNamed("/yourPage");
-                  }),
+              MyButton(x: 14, y: 60, title: "Ex", onPressed: () {}),
+              MyButton(x: 40, y: 30, title: "Here", onPressed: () => Navigator.of(context).pushNamed("/agendAppMain")),
+              MyButton(x: 70, y: 60, title: "AgendAppskkit", onPressed: () => Navigator.of(context).pushNamed("/agendAppMain"))
             ],
           ),
         ),
