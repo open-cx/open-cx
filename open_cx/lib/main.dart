@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'AgendApp.dart';
+import 'package:open_cx/networking/main.dart';
+import 'package:open_cx/program/AgendApp.dart';
 import 'package:flutter/services.dart';
 
 void main() {
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => HomePage(),
         "/yourPage": (context) => YourProject(),
-        "/agendAppMain": (context) => AgendAppMain()
+        "/agendAppMain": (context) => AgendAppMain(),
+        "/communio": (context) => Communio()
       },
     );
   }
@@ -40,8 +42,8 @@ class HomePage extends StatelessWidget {
                   child: Text("openCX",
                       style: TextStyle(fontSize: 32, color: Colors.white))),
               MyButton(x: 14, y: 60, title: "Ex", onPressed: () {}),
-              MyButton(x: 40, y: 30, title: "Here", onPressed: () => Navigator.of(context).pushNamed("/agendAppMain")),
-              MyButton(x: 70, y: 60, title: "AgendAppskkit", onPressed: () => Navigator.of(context).pushNamed("/agendAppMain"))
+              MyButton(x: 40, y: 30, title: "Networking", onPressed: () => Navigator.of(context).pushNamed("/communio")),
+              MyButton(x: 70, y: 60, title: "AgendAppskkit", onPressed: () => Navigator.of(context).pushNamed("/agendAppMain")),
             ],
           ),
         ),

@@ -44,6 +44,26 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+  html: ^0.13.3+3
+  flutter_redux: ^0.5.2
+  redux_thunk: ^0.2.1
+  http: ^0.12.0+1
+  query_params: '^0.6.1'
+  tuple: ^1.0.2
+  path_provider: any
+  sqflite: ^1.1.0
+  path: ^1.6.2
+  cached_network_image: ^1.1.0
+  flutter_svg: ^0.13.1
+  synchronized: ^2.1.0
+  toast: ^0.1.5
+  logger: ^0.7.0+2
+  flutter_blue: 0.6.2
+  flutter_barcode_scanner: ^0.1.7
+  qr_flutter: ^3.1.0
+  socket_io_client: ^0.9.7+1
+  flutter_dotenv: ^2.0.3
+  image_picker:
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +87,10 @@ flutter:
   #  - images/a_dot_ham.jpeg
   assets:
     - assets/images/porto.png
+    - assets/
+    - assets/fonts/
+    - .env 
+    - assets/icon/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
 
@@ -78,6 +102,7 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+
   fonts:
     - family: Pacifico
       fonts:
@@ -85,6 +110,22 @@ flutter:
     - family: Ubuntu
       fonts:
         - asset: assets/fonts/Ubuntu-Regular.ttf
+    - family: Nunito
+      fonts:
+        - asset: assets/fonts/Nunito-Black.ttf
+          weight: 900
+        - asset: assets/fonts/Nunito-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Nunito-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/Nunito-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/Nunito-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Nunito-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Nunito-SemiBold.ttf
+          weight: 600
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.io/custom-fonts/#from-packages
