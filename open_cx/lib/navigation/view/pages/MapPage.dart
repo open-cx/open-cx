@@ -75,7 +75,7 @@ class _ConferenceMap extends State<MapPage> {
               style: theme.textTheme.headline,
             )
           ),
-          backgroundColor: Theme.of(context).backgroundColor,
+          backgroundColor: Theme.of(context).primaryColor,
         ),
         body: GoogleMap(
           mapType: MapType.terrain,
@@ -111,10 +111,10 @@ class _ConferenceMap extends State<MapPage> {
             //key: const Key("map filters button"),
               onChangeFilter: () {
                 updateMarkers(context);
-              })
-        )
-    );
-  }
+                })
+          )
+      );
+    }
 
   void _animateToTargetPOI(PointOfInterest target, int initialDelay) {
     Future.delayed(Duration(milliseconds: initialDelay), () {

@@ -15,6 +15,16 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       key: const Key("Home page"),
       resizeToAvoidBottomInset : false,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Center(
+            child: Text(
+              'Guideasy',
+              style: theme.textTheme.headline,
+            )
+        ),
+        backgroundColor: theme.primaryColor,
+      ),
       body: Column(
         children: <Widget>[
           Expanded(

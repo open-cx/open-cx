@@ -26,7 +26,7 @@ class FilterItemState extends State<FilterItem> {
       builder: (context, selected) {
         selected = selected == null ? false : selected;
         return Container(
-            color: selected ? Colors.orangeAccent : Colors.transparent,
+            color: selected ? Theme.of(context).backgroundColor : Colors.transparent,
             child: ListTile(
               leading: Icon(widget.icon),
               title: Text(widget.title, style: TextStyle(color: Colors.black,)),

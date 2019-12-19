@@ -26,7 +26,7 @@ class FilterBox extends StatelessWidget{
                   ),
                   margin: EdgeInsets.all(0),
                   decoration: BoxDecoration(
-                      color: Theme.of(context).backgroundColor,
+                      color: Theme.of(context).primaryColor,
                   ),
                 ),
               ),
