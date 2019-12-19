@@ -14,18 +14,7 @@ class HomePage extends StatelessWidget {
     ThemeData theme = Theme.of(context);
     return Scaffold(
       key: const Key("Home page"),
-      resizeToAvoidBottomPadding: false,
-      backgroundColor: Color(0xffff9900),
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Center(
-            child: Text(
-              'Guideasy',
-              style: theme.textTheme.headline,
-            )
-        ),
-        backgroundColor: Color(0xffff9900),
-      ),
+      resizeToAvoidBottomInset : false,
       body: Column(
         children: <Widget>[
           Expanded(
@@ -45,7 +34,7 @@ class HomePage extends StatelessWidget {
                   child: RoomSearchBar())
           ),
           Expanded(
-            flex: 7,
+            flex: 10,
             child: GridView.count(
               primary: false,
               padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 0),
@@ -69,7 +58,10 @@ class HomePage extends StatelessWidget {
             flex: 2,
             child: Tooltip(
               message: "Open event map",
-              child: MapSlideButton(key: const Key("map slide button"))
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                child: MapSlideButton(key: const Key("map slide button")),
+              )
             ),
           )
         ],

@@ -19,10 +19,14 @@ class FilterBox extends StatelessWidget{
               Container(
                 height: 88,
                 child: DrawerHeader(
-                  child: Text('Filters'),
+                  child: Center(
+                    child: Text(
+                        'Filters',
+                        style: Theme.of(context).textTheme.headline),
+                  ),
                   margin: EdgeInsets.all(0),
                   decoration: BoxDecoration(
-                      color: Color(0xffff9900),
+                      color: Theme.of(context).backgroundColor,
                   ),
                 ),
               ),

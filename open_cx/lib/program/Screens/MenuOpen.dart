@@ -84,6 +84,7 @@ class _MenuPageState extends State<MenuPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body:_children[_selectedPageIndex],
+      resizeToAvoidBottomInset : false,
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(

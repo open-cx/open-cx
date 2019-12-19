@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_cx/navigation/main.dart';
 
 import '../../Components/AccountButton.dart';
 import '../../Model/Talk.dart';
@@ -14,6 +15,7 @@ class VenuePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset : false,
       appBar: AppBar(
         title: Text("Navigation",
           style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 24, fontWeight: FontWeight.bold),
@@ -22,6 +24,7 @@ class VenuePage extends StatelessWidget {
         backgroundColor: Color(0xFF28316C),
         actions: <Widget>[ AccountButton(talkList, user, allThemes) ],
       ),
+      body: GuideasyApp(),
     );
   }
 }

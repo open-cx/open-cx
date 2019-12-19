@@ -66,16 +66,16 @@ class _ConferenceMap extends State<MapPage> {
 
     return Scaffold(
         key: const Key("Map page"),
-        resizeToAvoidBottomPadding: false,
-        backgroundColor: Color(0xffff9900),
+        resizeToAvoidBottomInset : false,
+        backgroundColor: Theme.of(context).primaryColor,
         appBar: AppBar(
           title: Center(
             child: Text(
-              'Guideasy',
+              'Venue Map',
               style: theme.textTheme.headline,
             )
           ),
-          backgroundColor: Color(0xffff9900),
+          backgroundColor: Theme.of(context).backgroundColor,
         ),
         body: GoogleMap(
           mapType: MapType.terrain,

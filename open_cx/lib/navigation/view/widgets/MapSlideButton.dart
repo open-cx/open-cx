@@ -11,11 +11,11 @@ class MapSlideButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox.expand(
       child: FlatButton(
-        color: Theme.of(context).backgroundColor,
+        color: Theme.of(context).primaryColor,
         child: Icon(
-          Icons.keyboard_arrow_up,
+          Icons.zoom_out_map,
           color: Colors.white,
-          size: 100,
+          size: 45,
         ),
         onPressed: () {
           FocusScope.of(context).requestFocus(new FocusNode());

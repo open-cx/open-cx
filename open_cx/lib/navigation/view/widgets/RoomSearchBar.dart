@@ -40,6 +40,8 @@ class _RoomSearchBarState extends State<RoomSearchBar> {
       _gpsPosition = pos == null ? null : MapPosition(pos.latitude, pos.longitude);
     });
 
+    ThemeData theme = Theme.of(context);
+
     return StoreConnector<AppState, List<PointOfInterest>>(
         converter: (store) => store.state.content['pointsOfInterest'],
         builder: (BuildContext context, List<PointOfInterest> pointsOfInterest) {
@@ -49,17 +51,17 @@ class _RoomSearchBarState extends State<RoomSearchBar> {
                 contentPadding: EdgeInsets.all(0),
                 prefixIcon: Icon(
                   Icons.search,
-                  color: Colors.white,
+                  color: theme.primaryColor,
                 ),
                 border: UnderlineInputBorder(
                     borderSide: BorderSide(
-                        color: Colors.white,
+                        color: theme.primaryColor,
                         width: 1
                     )
                 ),
                 enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
-                        color: Colors.white,
+                        color: theme.primaryColor,
                         width: 1
                     )
                 ),
@@ -88,9 +90,9 @@ class _RoomSearchBarState extends State<RoomSearchBar> {
                       minHeight: 70.0
                   ),
                   decoration: BoxDecoration(
-                      color: Colors.orangeAccent,
+                      color: theme.backgroundColor,
                       border: Border.all(
-                          color: Colors.orange,
+                          color: theme.primaryColor,
                           width: 2
                       )
                   ),
