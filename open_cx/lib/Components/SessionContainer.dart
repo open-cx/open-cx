@@ -1,5 +1,6 @@
 import 'package:open_cx/Model/bluetooth/Session.dart';
 import 'package:flutter/material.dart';
+import 'package:open_cx/Screens/Search/SessionScreen.dart';
 import '../constants/AppColors.dart' as AppColors;
 
 class SessionContainer extends StatelessWidget {
@@ -14,7 +15,9 @@ class SessionContainer extends StatelessWidget {
     return FlatButton(
         padding: const EdgeInsets.all(0.0),
         onPressed: () {
-          Navigator.pushNamed(context, '/sessionScreen', arguments: activity);
+         Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+                        return new SessionScreen(session:this.activity);
+                      }));
         },
         child: activity.isCustom == 1
             ? this.drawCustomSessionContainer(deviceWidth)

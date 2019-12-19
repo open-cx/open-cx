@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:open_cx/Screens/Search/InitialLoadingScreen.dart';
+import 'package:open_cx/controller/Controller.dart';
 import 'AgendApp.dart';
 import 'package:flutter/services.dart';
+import 'constants/Utility.dart' as Utility;
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -12,6 +15,10 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
+    // Fecth the URL for the json needed for the bluetooth searching (AMA)
+    Controller.instance().updateURLPath(Utility.jsonURL);
+
     return MaterialApp(
       title: 'ESOF Demo',
       theme: ThemeData(
@@ -21,7 +28,8 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => HomePage(),
         "/yourPage": (context) => YourProject(),
-        "/agendAppMain": (context) => AgendAppMain()
+        "/agendAppMain": (context) => AgendAppMain(),
+        "/agendAppLoad": (context) => InitialLoadingScreen()  // On click go to the loading screen (loads the bluetooth search database from the conference JSON)
       },
     );
   }
@@ -40,8 +48,7 @@ class HomePage extends StatelessWidget {
                   child: Text("openCX",
                       style: TextStyle(fontSize: 32, color: Colors.white))),
               MyButton(x: 14, y: 60, title: "Ex", onPressed: () {}),
-              MyButton(x: 14, y: 30, title: "Here", onPressed: () => Navigator.of(context).pushNamed("/agendAppMain")),
-              MyButton(x: 70, y: 60, title: "AgendAppskkit", onPressed: () => Navigator.of(context).pushNamed("/agendAppMain"))
+              MyButton(x: 70, y: 60, title: "AMAgendAppskkit", onPressed: () => Navigator.of(context).pushNamed("/agendAppLoad"))
             ],
           ),
         ),

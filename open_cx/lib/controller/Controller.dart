@@ -9,8 +9,6 @@ import 'package:open_cx/Model/bluetooth/Item.dart';
 import 'package:open_cx/Model/bluetooth/Model.dart';
 import 'package:open_cx/Model/bluetooth/Person.dart' as Person;
 import 'package:open_cx/Model/bluetooth/Session.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'json/JsonController.dart';
 
 class Controller {
