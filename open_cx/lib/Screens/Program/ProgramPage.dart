@@ -6,6 +6,7 @@ import '../../Model/ThemeTalk.dart';
 import '../../Model/User.dart';
 import 'SchedulePage/SchedulePage.dart';
 import 'TalkListPage/TalkListPage.dart';
+import 'formQuestions.dart';
 
 class ProgramPage extends StatefulWidget {
   final List<Talk> talkList;
@@ -72,7 +73,9 @@ class ProgramPageState extends State<ProgramPage> {
                 ListTile(
                   leading: Icon(Icons.thumb_up),
                   title: Text('Recommended talks'),
-                    onTap: () { Navigator.pop(context); changePage(RecommendedTalksPage(talkList,  user), "Recommended talks"); }
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) {
+                      return FirstQuestion();
+                    }))
                 ),
                 ListTile(
                   leading: Icon(Icons.check_box),
