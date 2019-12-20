@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'package:open_cx/Components/SnackBar.dart';
+import 'package:open_cx/Model/User.dart';
+import 'package:open_cx/Services/auth.dart';
+
 import 'login.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -10,6 +14,14 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   bool _isHidden = true;
 
+  final AuthService _auth = AuthService();
+
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
+  TextEditingController signupEmailController = new TextEditingController();
+  TextEditingController signupNameController = new TextEditingController();
+  TextEditingController signupPasswordController = new TextEditingController();
+
   void _toggleVisibility() {
     setState(() {
       _isHidden = !_isHidden;
@@ -19,6 +31,7 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: Color(0xFF283468),
       resizeToAvoidBottomPadding: false,
       body: Container(
@@ -44,15 +57,15 @@ class _SignUpPageState extends State<SignUpPage> {
             SizedBox(
               height: 40.0,
             ),
-            buildTextField("Email"),
+            buildTextField("Email", signupEmailController),
             SizedBox(
               height: 20.0,
             ),
-            buildTextField("Username"),
+            buildTextField("Username", signupNameController),
             SizedBox(
               height: 20.0,
             ),
-            buildTextField("Password"),
+            buildTextField("Password", signupPasswordController),
             SizedBox(
               height: 30.0,
             ),
@@ -64,7 +77,7 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 
-  Widget buildTextField(String hintText) {
+  Widget buildTextField(String hintText, TextEditingController controller) {
     var icon;
     switch (hintText) {
       case "Username":
@@ -79,6 +92,7 @@ class _SignUpPageState extends State<SignUpPage> {
       default:
     }
     return TextField(
+      controller: controller,
       style: new TextStyle(color: Colors.white),
       decoration: InputDecoration(
         hintText: hintText,
@@ -106,10 +120,11 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget buildButtonContainer() {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context)
-            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new LoginPage();
-        }));
+        print("Name: " + signupNameController.text);
+        print("Email: " + signupEmailController.text);
+        print("Pass: " + signupPasswordController.text);
+
+        _signUp();
       },
       child: Container(
         height: 56.0,
@@ -130,5 +145,36 @@ class _SignUpPageState extends State<SignUpPage> {
         ),
       ),
     );
+  }
+
+  bool _validSignUpInput() {
+
+    if(signupEmailController.text.isEmpty) {
+      showInSnackBar(_scaffoldKey, 'Provide an email');
+      return false;
+    } else if(signupNameController.text.isEmpty) {
+      showInSnackBar(_scaffoldKey, 'Provide a name');
+      return false;
+    } else if(signupPasswordController.text.isEmpty) {
+      showInSnackBar(_scaffoldKey, 'Provide a password');
+      return false;
+    }
+    return true;
+  }
+
+  void _signUp() async {
+    if(_validSignUpInput()) {
+//      setState(() => loading = true);
+      User user = await _auth.registerWithEmailAndPassword(signupEmailController.text, signupPasswordController.text, signupNameController.text);
+      if (user == null) {
+//        setState(() => loading = false);
+        showInSnackBar(_scaffoldKey, 'Please supply valid credentials');
+      } else {
+        Navigator.of(context)
+            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          return new LoginPage();
+        }));
+      }
+    }
   }
 }

@@ -14,8 +14,8 @@ class Upvote {
 }
 
 class MyController implements DatabaseController {
-  static final User user1 = User("Tiago Miller", "tigasmiller@gmail.com", userThemes, "https://yt3.ggpht.com/a/AGF-l791z2rgw2RhBFQ2vnnI3wuxwMdZSNXI3U1LgQ=s176-c-k-c0x00ffffff-no-rj-mo");
-  static final User user2 = User("Pedro Moas", "pedromoas@gmail.com", userThemes, "https://yt3.ggpht.com/a/AGF-l791z2rgw2RhBFQ2vnnI3wuxwMdZSNXI3U1LgQ=s176-c-k-c0x00ffffff-no-rj-mo");
+  static final User user1 = User(name: "Tiago Miller", email: "tigasmiller@gmail.com", preferredThemes: userThemes, photo: "https://yt3.ggpht.com/a/AGF-l791z2rgw2RhBFQ2vnnI3wuxwMdZSNXI3U1LgQ=s176-c-k-c0x00ffffff-no-rj-mo");
+  static final User user2 = User(name: "Pedro Moas", email: "pedromoas@gmail.com", preferredThemes: userThemes, photo: "https://yt3.ggpht.com/a/AGF-l791z2rgw2RhBFQ2vnnI3wuxwMdZSNXI3U1LgQ=s176-c-k-c0x00ffffff-no-rj-mo");
 
   static List<User> admins = [user2];
   static User currentUser = user1;
