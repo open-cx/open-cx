@@ -74,7 +74,7 @@ class Table extends React.Component {
       id: talk._id,
       key: this.state.keyGetter()
     }
-    axios.post('http://api.feupbitcounter.info/api/talk/delete', null, {params})
+    axios.post('/api/talk/delete', null, {params})
       .then((response) => {
         console.log(response);
       })

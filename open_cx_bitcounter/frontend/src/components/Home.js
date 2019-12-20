@@ -26,7 +26,7 @@ export default class Home extends Component {
   }
 
   updateTalkList(){
-    axios.get('http://api.feupbitcounter.info/api/room/list',{ crossdomain: true })
+    axios.get('/api/room/list',{ crossdomain: true })
     .then((res) => {
       const { room } = res.data;
       let daysArray = [];
