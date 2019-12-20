@@ -5,10 +5,9 @@ const roomSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  occupation: {
-    type: Number,
-    required: true
-  }
+  talk: [{
+      type: Schema.Types.ObjectId, ref: 'talk'
+  }]
 });
 
 module.exports = room = mongoose.model('Room', roomSchema);
