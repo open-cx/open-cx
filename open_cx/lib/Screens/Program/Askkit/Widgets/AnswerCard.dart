@@ -63,8 +63,9 @@ class AnswerCard extends CardTemplate {
           Row(
             children: <Widget>[
               UserAvatar(_answer.user,
+                  anonymous: this._answer.anonymous,
                   avatarRadius: 15.0,
-                  textStyle: CardTemplate.usernameStyle(context, _answer.user == _dbcontroller.getCurrentUser())
+                  textStyle: CardTemplate.usernameStyle(context, _answer.user == _dbcontroller.getCurrentUser()),
               ),
               Spacer(),
               Text(_answer.getAgeString() , style: CardTemplate.dateStyle(context)),
@@ -82,11 +83,12 @@ class AnswerCard extends CardTemplate {
 
   void editAnswer(BuildContext context) async {
     Widget editPage = EditAnswerPage(this._answer);
-    String comment = await Navigator.push(context, MaterialPageRoute(builder: (context) => editPage));
-    if (comment == null)
+    List commentTuple = await Navigator.push(context, MaterialPageRoute(builder: (context) => editPage));
+    if (commentTuple == null)
       return;
-    this._dbcontroller.editAnswer(this._answer, comment);
-    this._answer.content = comment;
+    this._dbcontroller.editAnswer(this._answer, commentTuple[0]);
+    this._answer.content = commentTuple[0];
+    this._answer.anonymous = commentTuple[1];
     this.listener.refreshModel(true);
   }
 

@@ -25,14 +25,14 @@ class MyController implements DatabaseController {
   static List<Upvote> upvotes = new List();
 
   @override
-  Future<Answer> addAnswer(Question question, String content) {
-    answers.add(new Answer(currentUser, content, DateTime.now(), question));
+  Future<Answer> addAnswer(Question question, String content, bool anonymous) {
+    answers.add(new Answer(currentUser, content, DateTime.now(), anonymous, question));
     return Future.value(answers[answers.length - 1]);
   }
 
   @override
-  Future<Question> addQuestion(Talk talk, String content) {
-    questions.add(new Question(talk, currentUser, content, DateTime.now()));
+  Future<Question> addQuestion(Talk talk, String content, bool anonymous) {
+    questions.add(new Question(talk, currentUser, content, DateTime.now(), anonymous));
     return Future.value(questions[questions.length - 1]);
   }
 

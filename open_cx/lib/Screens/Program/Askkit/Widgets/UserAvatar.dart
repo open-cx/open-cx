@@ -2,14 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../Model/User.dart';
+import '../Controllers/ModelListener.dart';
 
 
-class UserAvatar extends StatelessWidget {
+class UserAvatar extends StatelessWidget implements ModelListener {
   final double avatarRadius;
   final User user;
   final TextStyle textStyle;
+  bool anonymous;
 
-  UserAvatar(this.user, {this.avatarRadius = 10.0, this.textStyle});
+  UserAvatar(this.user,  {this.anonymous, this.avatarRadius = 10.0, this.textStyle});
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -17,7 +19,7 @@ class UserAvatar extends StatelessWidget {
         Container(
             child: new CircleAvatar(
                 radius: avatarRadius,
-                backgroundImage:  user.getImage()
+                backgroundImage: anonymous ? null : user.getImage()
             ),
             padding: EdgeInsets.all(1.0),
             margin: EdgeInsets.only(right: avatarRadius / 2),
@@ -26,9 +28,14 @@ class UserAvatar extends StatelessWidget {
               shape: BoxShape.circle,
             )
         ),
-        Text(user.name, style: textStyle)
+        Text(anonymous ? 'Anonymous' : user.name, style: textStyle)
       ],
     );
+  }
+
+  @override
+  void refreshModel(bool showIndicator) {
+    // TODO: implement refreshModel
   }
 
 }

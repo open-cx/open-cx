@@ -143,10 +143,10 @@ class QuestionsPageState extends State<QuestionsPage> implements ModelListener {
 
   void addQuestionForm(BuildContext context) async {
     Widget questionPage = NewQuestionPage(widget._talk);
-    String comment = await Navigator.push(context, MaterialPageRoute(builder: (context) => questionPage));
-    if (comment == null)
+    List commentTuple = await Navigator.push(context, MaterialPageRoute(builder: (context) => questionPage));
+    if (commentTuple == null)
       return;
-    Question newQuestion = await widget._dbcontroller.addQuestion(widget._talk, comment);
+    Question newQuestion = await widget._dbcontroller.addQuestion(widget._talk, commentTuple[0], commentTuple[1]);
     await widget._dbcontroller.setUserUpvote(newQuestion, 1);
 
     refreshModel(true);

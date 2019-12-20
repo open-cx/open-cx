@@ -1,27 +1,44 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../../../Model/Answer.dart';
 import '../../../../Model/Question.dart';
 import '../../../../Model/Talk.dart';
 import '../Widgets/CustomDialog.dart';
 import '../Widgets/CustomTextForm.dart';
+import '../Widgets/DynamicFAB.dart';
 
 
-
-abstract class ManageCommentPage extends StatelessWidget {
-  static final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
-  static final TextEditingController _controller = TextEditingController();
-
+abstract class ManageCommentPage extends StatefulWidget {
   final String title;
   final String hintText;
   final String emptyError;
+  final bool edit;
 
-  ManageCommentPage(this.hintText, this.emptyError, this.title) : super();
+  ManageCommentPage(this.hintText, this.emptyError, this.title, this.edit) : super();
 
   String getHeaderPrefix();
   String getHeaderSuffix();
   String initialContent();
+
+  static final TextEditingController _controller = TextEditingController();
+
+  @override
+  State<StatefulWidget> createState() {
+    return ManageCommentPageState();
+  }
+
+  static void setControllerText(String text) {
+    WidgetsBinding.instance.addPostFrameCallback((_) => ManageCommentPage._controller.text = text);
+  }
+
+}
+
+class ManageCommentPageState extends State<ManageCommentPage> {
+
+  static final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+  static bool anonymous = false;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +47,7 @@ abstract class ManageCommentPage extends StatelessWidget {
       onWillPop: () => _onBackPressed(context),
       child: Scaffold(
           appBar: AppBar(
-            title: Text(this.title,
+            title: Text(widget.title,
               style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 24, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
@@ -39,7 +56,7 @@ abstract class ManageCommentPage extends StatelessWidget {
               FlatButton(child: Text("Submit", style: TextStyle(color: Theme.of(context).canvasColor)), onPressed: () => _onSubmitPressed(context))
             ],
           ),
-        body: ListView(
+          body: ListView(
           children: <Widget>[
             Container(
                 padding: EdgeInsets.all(10.0),
@@ -47,8 +64,8 @@ abstract class ManageCommentPage extends StatelessWidget {
                   text: TextSpan(
                     style: titleStyle,
                     children: [
-                      TextSpan(text: this.getHeaderPrefix()),
-                      TextSpan(text: this.getHeaderSuffix(), style: titleStyle.copyWith(color: Theme.of(context).primaryColor)),
+                      TextSpan(text: widget.getHeaderPrefix()),
+                      TextSpan(text: widget.getHeaderSuffix(), style: titleStyle.copyWith(color: Theme.of(context).primaryColor)),
                     ]
                   )
                 )
@@ -57,10 +74,19 @@ abstract class ManageCommentPage extends StatelessWidget {
             Container(
                 padding: EdgeInsets.only(left: 10.0, right: 10.0),
                 constraints: BoxConstraints(minHeight: 200),
-                child: TextAreaForm(_formkey, _controller, hintText, emptyError, autofocus: true)
+                child: TextAreaForm(_formkey, ManageCommentPage._controller, widget.hintText, widget.emptyError, autofocus: true)
             )
           ],
-        )
+        ),
+          floatingActionButton: widget.edit ? null : FloatingActionButton(
+              backgroundColor: anonymous ? Color(0xFF28316C) : Theme.of(context).canvasColor,
+              onPressed: (){
+                setState(() {
+                  anonymous = !anonymous;
+                });// Change icon and setState to rebuild
+              },
+              child: Icon(MdiIcons.incognito, color: anonymous ? Theme.of(context).canvasColor : Color(0xFF28316C)) //, size: size / 2),
+          )
       ),
     );
   }
@@ -68,13 +94,13 @@ abstract class ManageCommentPage extends StatelessWidget {
   void _onSubmitPressed(BuildContext context) {
     if (!_formkey.currentState.validate())
       return;
-    if (_controller.text == this.initialContent())
+    if (ManageCommentPage._controller.text == widget.initialContent())
       Navigator.pop(context, null);
-    else Navigator.pop(context, _controller.text);
+    else Navigator.pop(context, [ManageCommentPage._controller.text, anonymous]);
   }
 
   Future<bool> _onBackPressed(BuildContext context) {
-    if (_controller.text == this.initialContent())
+    if (ManageCommentPage._controller.text == widget.initialContent())
       return Future<bool>.value(true);
     return CustomDialog(
           context: context,
@@ -86,39 +112,33 @@ abstract class ManageCommentPage extends StatelessWidget {
           ],
     ).show() ?? false;
   }
-
-  static void setControllerText(String text) {
-    WidgetsBinding.instance.addPostFrameCallback((_) => ManageCommentPage._controller.text = text);
-  }
-
 }
 
 class NewQuestionPage extends ManageCommentPage {
   final Talk talk;
-  NewQuestionPage(this.talk) : super("Type question", "Question can't be empty", "New question") {
+  NewQuestionPage(this.talk) : super("Type question", "Question can't be empty", "New question", false) {
     ManageCommentPage.setControllerText("");
   }
 
   @override String getHeaderPrefix() => "Posting in: ";
   @override String getHeaderSuffix() => this.talk.name;
   @override String initialContent() => "";
-
 }
 
 class NewAnswerPage extends ManageCommentPage {
   final Question question;
-  NewAnswerPage(this.question) : super("Type answer", "Answer can't be empty", "New answer") {
+  NewAnswerPage(this.question) : super("Type answer", "Answer can't be empty", "New answer", false) {
     ManageCommentPage.setControllerText("");
   }
 
   @override String getHeaderPrefix() => "Replying to: ";
-  @override String getHeaderSuffix() => this.question.user.name;
+  @override String getHeaderSuffix() => this.question.anonymous ? 'Anonymous' : this.question.user.name;
   @override String initialContent() => "";
 }
 
 class EditQuestionPage extends ManageCommentPage {
   final Question question;
-  EditQuestionPage(this.question) : super("Type question", "Question can't be empty", "Edit question") {
+  EditQuestionPage(this.question) : super("Type question", "Question can't be empty", "Edit question", true) {
     ManageCommentPage.setControllerText(this.question.content);
   }
 
@@ -129,7 +149,7 @@ class EditQuestionPage extends ManageCommentPage {
 
 class EditAnswerPage extends ManageCommentPage {
   final Answer answer;
-  EditAnswerPage(this.answer) : super("Type answer", "Answer can't be empty", "Edit answer") {
+  EditAnswerPage(this.answer) : super("Type answer", "Answer can't be empty", "Edit answer", true) {
     ManageCommentPage.setControllerText(this.answer.content);
   }
 
