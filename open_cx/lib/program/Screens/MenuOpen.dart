@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../navigation/main.dart';
 import '../Model/Talk.dart';
 import '../Model/ThemeTalk.dart';
 import '../Model/User.dart';
@@ -75,7 +76,7 @@ class _MenuPageState extends State<MenuPage> {
 
   final List<Widget> _children = [
     ProgramPage(talkList, user, allThemes),
-    VenuePage(talkList, user, allThemes),
+    GuideasyApp(),
     PeoplePage(talkList, user, allThemes),
     HelpPage(talkList, user, allThemes),
   ];
@@ -84,6 +85,7 @@ class _MenuPageState extends State<MenuPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body:_children[_selectedPageIndex],
+      resizeToAvoidBottomInset : false,
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(

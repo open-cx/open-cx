@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'AgendApp.dart';
+import 'program/AgendApp.dart';
 import 'package:flutter/services.dart';
+import 'package:open_cx/navigation/main.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(

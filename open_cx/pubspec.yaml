@@ -44,10 +44,29 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+  #guideasy_app
+  google_maps_flutter: ^0.5.5
+  autocomplete_textfield: ^1.6.4
+  sqflite: ^1.1.7+1
+  path_provider: ^1.4.0
+  flutter_redux: ^0.5.4
+  redux_thunk: ^0.2.1
+  geolocator: ^5.1.5
+  fluttertoast: ^3.1.3
+  connectivity: ^0.4.5
+  #guideasy_app
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.7.4 #guideasy_app
+
+#guideasy_app
+flutter_icons:
+  image_path: 'assets/guideasy_app/icon.png'
+  android: true
+  ios: true
+#guideasy_app
 
 
 # For information on the generic Dart part of this file, see the
@@ -62,11 +81,10 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #  - images/a_dot_burr.jpeg
-  #  - images/a_dot_ham.jpeg
   assets:
     - assets/images/porto.png
+    - assets/guideasy_app/splash_screen/ #guideasy_app
+    - assets/guideasy_app/locations_db/ #guideasy_app
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
 
@@ -81,10 +99,19 @@ flutter:
   fonts:
     - family: Pacifico
       fonts:
-        - asset: assets/fonts/Pacifico-Regular.ttf
+        - asset: fonts/guideasy_app/Pacifico-Regular.ttf
+    - family: Roboto
+      fonts:
+        - asset: fonts/guideasy_app/Roboto-Regular.ttf
+        - asset: fonts/guideasy_app/Roboto-Light.ttf
+        - asset: fonts/guideasy_app/Roboto-Medium.ttf
+        - asset: fonts/guideasy_app/Roboto-Thin.ttf
     - family: Ubuntu
       fonts:
         - asset: assets/fonts/Ubuntu-Regular.ttf
+    - family:  GuideasyIcons
+      fonts:
+        - asset: fonts/guideasy_app/GuideasyIcons.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.io/custom-fonts/#from-packages
