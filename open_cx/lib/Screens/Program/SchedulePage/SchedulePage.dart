@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../Model/Talk.dart';
 import '../TalkPage/TalkPage.dart';
+import 'package:intl/intl.dart';
 
 class SchedulePage extends StatefulWidget {
   final List<Talk> talkList;
@@ -25,10 +26,7 @@ class SchedulePageState extends State<SchedulePage>    {
   List<DateTime> daysList = [new DateTime(2019, 12, 8, 8, 0), new DateTime(2019, 12, 9, 8, 0),new DateTime(2019, 12, 10, 8, 0),new DateTime(2019, 12, 11, 8, 0),new DateTime(2019, 12, 12, 8, 0),new DateTime(2019, 12, 13, 8, 0)];
   List<ScrollController> controllers = new List<ScrollController>();
 
-  final List<String> timeInterval = [
-    "08:00 AM", "08:30 AM", "09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "12:00 AM", "12:30 AM",
-    "01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM", "05:00 PM", "05:30 PM", "06:00 PM"
-  ];
+  List<String> timeInterval = new List<String>();
 
   List<String> createIntervals(int firstHour, int firstMinutes, int lastHour, int lastMinutes) {
     String firstTime = firstHour.toString().padLeft(2,'0')  + ":" + firstMinutes.toString().padLeft(2,'0') ;
@@ -39,9 +37,6 @@ class SchedulePageState extends State<SchedulePage>    {
     int currentHour = firstHour;
     int currentMinutes = firstMinutes;
     finalList.add(firstTime);
-
-    // print(finalList[0]);
-
 
     if(firstMinutes != 0)
       differenceBlocks -= 1;
@@ -57,10 +52,8 @@ class SchedulePageState extends State<SchedulePage>    {
       }
 
       finalList.add(currentHour.toString().padLeft(2,'0') + ":" + currentMinutes.toString().padRight(2,'0'));
-      print(finalList[i]);
     }
     finalList.add(lastTime);
-    // print(finalList[differenceBlocks]);
 
 
     return finalList;
@@ -91,37 +84,6 @@ class SchedulePageState extends State<SchedulePage>    {
     for(int i = 0; i < daysList.length; i++){
       controllers.add(new ScrollController());
       controllers[i].addListener(listener1);
-    }
-  }
-
-  String convertWeekDay(int day){
-    switch (day) {
-      case 1: return "MON";
-      case 2: return "TUE";
-      case 3: return "WED";
-      case 4: return "THU";
-      case 5: return "FRI";
-      case 6: return "SUN";
-      case 7: return "SAT";
-      default: return "nada";
-    }
-  }
-
-  String convertMonth(int month){
-    switch (month) {
-      case 1: return "JAN";
-      case 2: return "FEB";
-      case 3: return "MAR";
-      case 4: return "APR";
-      case 5: return "MAY";
-      case 6: return "JUN";
-      case 7: return "JUL";
-      case 8: return "AUG";
-      case 9: return "SET";
-      case 10: return "OCT";
-      case 11: return "NOV";
-      case 12: return "DEC";
-      default: return "nada";
     }
   }
 
@@ -176,6 +138,7 @@ class SchedulePageState extends State<SchedulePage>    {
   Widget individualTimeBlock(int i){
     return Container(
       padding: EdgeInsets.only(left: 5.0),
+      alignment: Alignment.topCenter,
       child: Text(
         timeInterval[i],
         style: TextStyle(
@@ -198,7 +161,7 @@ class SchedulePageState extends State<SchedulePage>    {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                convertWeekDay(daysList[i].weekday),
+                DateFormat('EE').format(daysList[i]),
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Color(0xFF444444),
@@ -206,7 +169,7 @@ class SchedulePageState extends State<SchedulePage>    {
                 ),
               ),
               Text(
-                daysList[i].day.toString() + convertMonth(daysList[i].month),
+                DateFormat('dMMM').format(daysList[i]),
                 style: TextStyle(
                     color: Color(0xFF666666),
                     fontSize: 13
@@ -336,7 +299,7 @@ class SchedulePageState extends State<SchedulePage>    {
 
   @override
   Widget build(BuildContext context) {
-    // List<String> teste = createIntervals(8, 0, 18, 0);
+    timeInterval = createIntervals(8, 0, 18, 0);
     return Container(
       height: MediaQuery.of(context).size.height * 0.92,
         child: Row(
