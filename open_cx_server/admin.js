@@ -9,14 +9,11 @@ const Participant = require('./models/participant');
 const Question = require('./models/question');
 const Speaker = require('./models/speaker');
 const Talk = require('./models/talk');
-<<<<<<< HEAD
 const POI = require('./models/poi');
 const Place = require('./models/place');
 const Connection = require('./models/connection');
 const Workshop = require('./models/workshop');
-=======
 const FriendRequest = require('./models/friend_request');
->>>>>>> open-cx/dev
 
 AdminBro.registerAdapter(AdminBroMongoose)
 const adminBro = new AdminBro({
@@ -60,7 +57,6 @@ const adminBro = new AdminBro({
       resource: Talk,
     },
     {
-<<<<<<< HEAD
       resource: POI,
     },
     {
@@ -71,9 +67,9 @@ const adminBro = new AdminBro({
     },
     {
       resource: Workshop,
-=======
+    },
+    {
       resource: FriendRequest
->>>>>>> open-cx/dev
     }
   ],
   branding: {

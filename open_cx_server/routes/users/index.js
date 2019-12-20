@@ -9,9 +9,6 @@ users.post('/', all);
 users.get('/:postId', single);
 users.post('/:postId', single);
 
-<<<<<<< HEAD
-module.exports = users;
-=======
 
 users.use('/tags', require('./tags'));
 
@@ -20,4 +17,3 @@ users.use('/description', require('./description'));
 users.use('/socials', require('./socials'));
 users.use('/profile', require('./profile'));
 module.exports = users;
->>>>>>> open-cx/dev

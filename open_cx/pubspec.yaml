@@ -35,8 +35,6 @@ dependencies:
   intl: ^0.15.8
   firebase_messaging:
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
   flutter_local_notifications: ^0.8.4+3
   flutter_markdown: ^0.3.2
   url_launcher: ^5.2.7
@@ -44,6 +42,13 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+
+  # The following adds the dependencies for google maps and location
+  # services, as well as application permissions
+  google_maps_flutter: ^0.5.21+8
+  permission_handler: '^4.0.0'
+  location: ^2.3.5
+  http: ^0.12.0+2
 
 dev_dependencies:
   flutter_test:
