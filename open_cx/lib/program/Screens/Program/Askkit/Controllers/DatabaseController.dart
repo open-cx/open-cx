@@ -7,8 +7,8 @@ import '../../../../Model/Talk.dart';
 import '../../../../Model/User.dart';
 
 abstract class DatabaseController {
-  Future<Question> addQuestion(Talk talk, String content);
-  Future<Answer> addAnswer(Question question, String content);
+  Future<Question> addQuestion(Talk talk, String content, bool anonymous);
+  Future<Answer> addAnswer(Question question, String content, bool anonymous);
 
   User getCurrentUser();
   bool isAdmin();

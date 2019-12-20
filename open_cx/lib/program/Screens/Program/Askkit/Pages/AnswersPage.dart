@@ -128,10 +128,10 @@ class AnswersPageState extends State<AnswersPage> implements ModelListener {
 
   void addAnswerForm(BuildContext context) async {
     Widget answerPage = NewAnswerPage(widget._question);
-    String comment = await Navigator.push(context, MaterialPageRoute(builder: (context) => answerPage));
-    if (comment == null)
+    List commentTuple = await Navigator.push(context, MaterialPageRoute(builder: (context) => answerPage));
+    if (commentTuple == null)
       return;
-    await widget._dbcontroller.addAnswer(widget._question, comment);
+    await widget._dbcontroller.addAnswer(widget._question, commentTuple[0], commentTuple[1]);
     refreshModel(true);
   }
 }

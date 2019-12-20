@@ -5,8 +5,9 @@ class Comment {
   String content;
   DateTime date;
   bool edited = false;
+  bool anonymous;
 
-  Comment(this.user, this.content, this.date);
+  Comment(this.user, this.content, this.date, this.anonymous);
 
   void setEdited() {
     this.edited = true;

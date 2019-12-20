@@ -68,6 +68,7 @@ class QuestionCard extends CardTemplate {
                       ),
                     ),
                     UserAvatar(_question.user,
+                        anonymous: this._question.anonymous,
                         avatarRadius: 15.0,
                         textStyle: CardTemplate.usernameStyle(context, _question.user == _dbcontroller.getCurrentUser())
                     ),
@@ -100,11 +101,11 @@ class QuestionCard extends CardTemplate {
 
   void editQuestion(BuildContext context) async {
     Widget editPage = EditQuestionPage(this._question);
-    String comment = await Navigator.push(context, MaterialPageRoute(builder: (context) => editPage));
-    if (comment == null)
+    List commentTuple = await Navigator.push(context, MaterialPageRoute(builder: (context) => editPage));
+    if (commentTuple == null)
       return;
-    this._dbcontroller.editQuestion(this._question, comment);
-    this._question.content = comment;
+    this._dbcontroller.editQuestion(this._question, commentTuple[0]);
+    this._question.content = commentTuple[0];
     this.listener.refreshModel(true);
   }
 

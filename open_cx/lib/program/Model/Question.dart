@@ -12,7 +12,7 @@ class Question extends Comment {
 
   Talk talk;
 
-  Question(this.talk, User user, String question, DateTime date) : super(user, question, date);
+  Question(this.talk, User user, String question, DateTime date, bool anonymous) : super(user, question, date, anonymous);
 
   void markAnswered() {
     this.answered = true;
