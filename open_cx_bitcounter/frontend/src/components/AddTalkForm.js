@@ -78,7 +78,7 @@ export default class AddTalkForm extends React.Component {
         key: this.state.keyGetter()
       }
     
-      axios.post('http://api.feupbitcounter.info/api/talk/create', null, {params}) 
+      axios.post('/api/talk/create', null, {params}) 
       .then((response) => {
         console.log(response);
       })

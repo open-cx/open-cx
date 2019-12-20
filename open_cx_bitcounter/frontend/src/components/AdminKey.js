@@ -34,7 +34,7 @@ export default class AdminKey extends React.Component {
       key: this.state.key
     }
   
-    axios.post('http://127.0.0.1:6200/api/admin/validate', null, {params})
+    axios.post('/api/admin/validate', null, {params})
     .then((response) => {
       this.state.keyHandler(this.state.key); 
       console.log(response);
