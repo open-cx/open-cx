@@ -9,6 +9,8 @@
         android:name="io.flutter.app.FlutterApplication"
         android:label="open_cx"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+                   android:value="AIzaSyDMYhk4zW0i1IOMfkwBZP9Nz_jRX_3aJUM" />
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
@@ -29,4 +31,5 @@
             </intent-filter>
         </activity>
     </application>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 </manifest>

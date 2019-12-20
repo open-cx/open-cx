@@ -1,10 +1,6 @@
 open_cx_server/node_modules/
 .env
 .vscode
-<<<<<<< HEAD
-open_cx_server/.adminbro
-=======
 open_cx_server/.adminbro/
 node_modules/
 *.swp
->>>>>>> dev
