@@ -11,7 +11,7 @@ os.environ['NO_PROXY'] = '127.0.0.1'
 
 frames = []
 
-ID_TALK = '1'
+ROOM_NAME = 'B350'
 faces = []
 
 iteration = 0
@@ -89,10 +89,10 @@ def printit():
     maxValue = numberOfFaces
     print('new max' + str(maxValue))
   if(iteration == 12):
+    requests.post('http://127.0.0.1:5000/api/room/update?name=' + ROOM_NAME + '&occupation=' + str(maxValue))
     print('saving to db' + str(maxValue))
     maxValue = 0
     iteration = 0
-    requests.post('http://127.0.0.1:6200/api/room/update?name=' + ID_TALK + '&occupation=' + str(maxValue))
     
   
   threading.Timer(5.0, printit).start()

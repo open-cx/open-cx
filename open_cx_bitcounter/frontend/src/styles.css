@@ -1,0 +1,35 @@
+.main-container{
+  margin-top: 40px;
+  margin-bottom: 40px;
+  
+}
+
+
+.react-calendar{
+  width: 100% !important;
+  border: none !important;
+}
+.rooms-container{
+  margin-top: 40px;
+}
+
+.close-button {
+  float:right;
+}
+
+.statistics-container {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.delete-button {
+  float:right;
+}
+
+.submit-button {
+  float:right;
+}
+
+#key_text {
+  padding: 0.2em;
+}
