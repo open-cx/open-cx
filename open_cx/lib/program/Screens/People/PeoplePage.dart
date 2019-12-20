@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_cx/networking/main.dart';
 
 import '../../Components/AccountButton.dart';
 import '../../Model/Talk.dart';
@@ -15,15 +16,6 @@ class PeoplePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("People",
-          style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 24, fontWeight: FontWeight.bold),
-          textAlign: TextAlign.center,
-        ),
-        backgroundColor: Color(0xFF28316C),
-        actions: <Widget>[ AccountButton(talkList, user, allThemes) ],
-      ),
-    );
+    return Communio();
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'program/AgendApp.dart';
+import 'package:open_cx/networking/main.dart';
+import 'package:open_cx/program/AgendApp.dart';
 import 'package:flutter/services.dart';
-import 'package:open_cx/navigation/main.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -22,7 +22,8 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => HomePage(),
         "/yourPage": (context) => YourProject(),
-        "/agendAppMain": (context) => AgendAppMain()
+        "/agendAppMain": (context) => AgendAppMain(),
+        "/communio": (context) => Communio()
       },
     );
   }
