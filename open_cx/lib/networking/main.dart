@@ -57,14 +57,11 @@ class CommunioAppState extends State<Communio> {
       child: MaterialApp(
           title: 'Communio',
           theme: applicationTheme,
-          home: HomePageView(),
+          home: PeopleSearchingPage(),
           navigatorKey: NavigationService.navigatorKey,
           // ignore: missing_return
           onGenerateRoute: (RouteSettings settings) {
             switch (settings.name) {
-              case '/Homepage':
-                return MaterialPageRoute(
-                    builder: (context) => HomePageView(), settings: settings);
               case '/PeopleSearch':
                 return MaterialPageRoute(
                     builder: (context) => PeopleSearchingPage(),
