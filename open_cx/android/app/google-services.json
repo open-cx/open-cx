@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "309762097002",
+    "firebase_url": "https://open-cx.firebaseio.com",
+    "project_id": "open-cx",
+    "storage_bucket": "open-cx.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:309762097002:android:b4a0b651b8f622bbdcef13",
+        "android_client_info": {
+          "package_name": "com.example.open_cx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "309762097002-pc57lu8jb51llqgt7c9bb05rciab98ko.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPfFX53MiQhZJ4X7TFj_DA7bnVB2VfCW0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "309762097002-pc57lu8jb51llqgt7c9bb05rciab98ko.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
