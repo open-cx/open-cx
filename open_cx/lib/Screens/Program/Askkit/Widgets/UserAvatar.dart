@@ -2,10 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../Model/User.dart';
-import '../Controllers/ModelListener.dart';
 
 
-class UserAvatar extends StatelessWidget implements ModelListener {
+class UserAvatar extends StatelessWidget {
   final double avatarRadius;
   final User user;
   final TextStyle textStyle;
@@ -31,11 +30,6 @@ class UserAvatar extends StatelessWidget implements ModelListener {
         Text(anonymous ? 'Anonymous' : user.name, style: textStyle)
       ],
     );
-  }
-
-  @override
-  void refreshModel(bool showIndicator) {
-    // TODO: implement refreshModel
   }
 
 }

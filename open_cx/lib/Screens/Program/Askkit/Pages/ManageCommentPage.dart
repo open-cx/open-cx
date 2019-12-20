@@ -7,7 +7,6 @@ import '../../../../Model/Question.dart';
 import '../../../../Model/Talk.dart';
 import '../Widgets/CustomDialog.dart';
 import '../Widgets/CustomTextForm.dart';
-import '../Widgets/DynamicFAB.dart';
 
 
 abstract class ManageCommentPage extends StatefulWidget {
