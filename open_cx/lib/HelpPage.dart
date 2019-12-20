@@ -99,10 +99,9 @@ class HelpPage extends StatelessWidget {
                 height: 80,
 
                 child:  new FlatButton(
-                          color: Colors.blue,
+                          color: Color.fromRGBO(3, 44, 115, 1),
                           textColor: Colors.white,
                           padding: EdgeInsets.all(8.0),
-                          splashColor: Colors.blueAccent,
                           onPressed: () {
                             Navigator.push(
                               context,
@@ -116,12 +115,11 @@ class HelpPage extends StatelessWidget {
               )),
               Container(
                   height: 80,
-
+                  padding: ,
                   child:  new FlatButton(
-                    color: Colors.blue,
+                    color:Color.fromRGBO(3, 44, 115, 1),
                     textColor: Colors.white,
                     padding: EdgeInsets.all(8.0),
-                    splashColor: Colors.blueAccent,
                     onPressed: () {
                       Navigator.push(
                         context,
