@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'AgendApp.dart';
+import 'package:open_cx/networking/main.dart';
+import 'package:open_cx/program/AgendApp.dart';
 import 'package:flutter/services.dart';
 
 void main() {
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => HomePage(),
         "/yourPage": (context) => YourProject(),
-        "/agendAppMain": (context) => AgendAppMain()
+        "/agendAppMain": (context) => AgendAppMain(),
+        "/communio": (context) => Communio()
       },
     );
   }
