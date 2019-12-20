@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class NavigationDrawer extends StatefulWidget {
   final BuildContext parentContext;
 
-  NavigationDrawer({@required this.parentContext}) {}
+  NavigationDrawer({@required this.parentContext});
 
   @override
   State<StatefulWidget> createState() {
@@ -15,10 +15,9 @@ class NavigationDrawer extends StatefulWidget {
 class NavigationDrawerState extends State<NavigationDrawer> {
   final BuildContext parentContext;
 
-  NavigationDrawerState({@required this.parentContext}) {}
+  NavigationDrawerState({@required this.parentContext});
 
   static final drawerItems = [
-    "Homepage",
     "PeopleSearch",
     "ListConnected",
     "Settings", 

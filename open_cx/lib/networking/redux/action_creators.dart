@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:logger/logger.dart';
 import 'package:redux_thunk/redux_thunk.dart';
+import '../main.dart';
 import '../model/app_state.dart';
 import 'actions.dart';
 import 'package:redux/redux.dart';
@@ -23,6 +24,7 @@ ThunkAction<AppState> incrementCounter() {
 
 ThunkAction<AppState> scanForDevices() {
   return (Store<AppState> store) async {
+    await DotEnv().load('.env');
     final response = await http.get(
         '${DotEnv().env['API_URL']}users/matches/nomatched/${store.state.content['user_id']}');
     if (response.statusCode == 200) {
