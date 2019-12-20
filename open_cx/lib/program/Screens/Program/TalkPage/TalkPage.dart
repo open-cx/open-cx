@@ -7,6 +7,10 @@ import '../../../Model/Talk.dart';
 import '../Askkit/Controllers/MyController.dart';
 import '../Askkit/Pages/QuestionsPage.dart';
 
+import '../FeedTheConference/View/FormPage/form.dart';
+import'../FeedTheConference/View/CreateFormPage/createForm.dart';
+import'../FeedTheConference/View/FormPage/Statistics/statistic.dart';
+
 
 class TalkPage extends StatefulWidget {
   final Talk talk;
@@ -46,6 +50,7 @@ class TalkPageState extends State<TalkPage> {
             showDescription(widget.talk),
             showSpeakers(widget.talk),
             showLocation(widget.talk),
+            showFeedOurTalk(widget.talk, context)
           ],
         ),
       ),
@@ -157,4 +162,68 @@ Widget showLocation(Talk talk) {
               style: TextStyle(fontSize: 18.0, color: Colors.black),
             )),
       ]);
+}
+
+Widget showFeedOurTalk(Talk talk, BuildContext context){
+  return Column(
+    crossAxisAlignment:CrossAxisAlignment.start,
+      children:<Widget>[
+
+        SizedBox(
+          width:double.infinity,
+          child:Container(
+            padding:EdgeInsets.only(top:15,bottom:15,left:20.0,right:15.0),
+            color:Color(0xffEFEFEF),
+            child:Text('Feedback',style:TextStyle(fontSize:20.0,color:Color(0xff6B6B6B)),),
+          )
+        ),
+        Container(
+          padding:EdgeInsets.only(top:20,bottom:15,left:20.0),
+            child:FlatButton(
+            onPressed: () {
+
+              //TODO: get Form ID
+              int formID = 1;
+
+              //TODO: Change username to the logged user
+              String username = "lockdown4";
+
+              Navigator.of(context).push(MaterialPageRoute(builder:(context)=>FormPage(formId: formID, username: username,)));
+            },
+              child:Text('Feed our talk!',style:TextStyle(fontWeight:FontWeight.bold),),
+          )),
+
+      Container(//TODO:This should be for speaker and organizer only
+        padding:EdgeInsets.only(top:20,bottom:15,left:20.0),
+        child:FlatButton(
+        onPressed:(){
+          //TODO:getFormID
+          int formID = 1;
+
+          //TODO:Change username to the logged user
+          String username = "lockdown4";
+
+          Navigator.of(context).push(MaterialPageRoute(builder:(context)=>CreateFormPage(formId:formID,username:username,)));
+        },
+
+          child:Text('Create a Form',style:TextStyle(fontWeight:FontWeight.bold),),
+      )),
+
+        Container(
+          padding: EdgeInsets.only(top:20,bottom:15,left:20.0),
+          child: FlatButton(
+            onPressed: (){
+              //TODO:getFormID
+              int formID = 1;
+
+              //TODO: Change username to the logged user
+              String username = "lockdown4";
+
+              Navigator.of(context).push(MaterialPageRoute(builder:(context)=>StatisticsForm(formId:formID, talkName: talk.name,)));
+            },
+            child: Text('View form statistics',style:TextStyle(fontWeight:FontWeight.bold),),
+          ),
+        )
+
+  ]);
 }

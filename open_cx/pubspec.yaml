@@ -32,7 +32,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  intl: ^0.15.8
+  intl: ^0.16.0
   firebase_messaging:
 
   # The following adds the Cupertino Icons font to your application.
@@ -70,6 +70,8 @@ dependencies:
   geolocator: ^5.1.5
   connectivity: ^0.4.5
   fluttertoast: ^3.1.3
+  jiffy: ^2.1.2
+  smooth_star_rating: 1.0.3
 
 dev_dependencies:
   flutter_test:
@@ -100,7 +102,7 @@ flutter:
     - assets/images/porto.png
     - assets/
     - assets/fonts/
-    - .env 
+    - .env
     - assets/icon/
     - assets/guideasy_app/splash_screen/ #guideasy_app
     - assets/guideasy_app/locations_db/ #guideasy_app
