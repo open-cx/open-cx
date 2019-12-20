@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'AgendApp.dart';
 import 'package:flutter/services.dart';
 
 void main() {
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         "/": (context) => HomePage(),
-        "/yourPage": (context) => YourProject()
+        "/yourPage": (context) => YourProject(),
+        "/agendAppMain": (context) => AgendAppMain()
       },
     );
   }
@@ -38,13 +40,8 @@ class HomePage extends StatelessWidget {
                   child: Text("openCX",
                       style: TextStyle(fontSize: 32, color: Colors.white))),
               MyButton(x: 14, y: 60, title: "Ex", onPressed: () {}),
-              MyButton(
-                  x: 40,
-                  y: 30,
-                  title: "Here",
-                  onPressed: () {
-                    Navigator.of(context).pushNamed("/yourPage");
-                  }),
+              MyButton(x: 40, y: 30, title: "Here", onPressed: () => Navigator.of(context).pushNamed("/agendAppMain")),
+              MyButton(x: 70, y: 60, title: "AgendAppskkit", onPressed: () => Navigator.of(context).pushNamed("/agendAppMain"))
             ],
           ),
         ),
