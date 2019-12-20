@@ -106,7 +106,6 @@ class QuestionCard extends CardTemplate {
       return;
     this._dbcontroller.editQuestion(this._question, commentTuple[0]);
     this._question.content = commentTuple[0];
-    this._question.anonymous = commentTuple[1];
     this.listener.refreshModel(true);
   }
 

@@ -88,7 +88,6 @@ class AnswerCard extends CardTemplate {
       return;
     this._dbcontroller.editAnswer(this._answer, commentTuple[0]);
     this._answer.content = commentTuple[0];
-    this._answer.anonymous = commentTuple[1];
     this.listener.refreshModel(true);
   }
 
