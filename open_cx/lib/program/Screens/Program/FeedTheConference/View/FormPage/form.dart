@@ -108,7 +108,7 @@ class AnswerBox extends StatefulWidget {
   AnswerBox(this.questionID, this.type, this.questionSubText);
 
   int _radioValue = -1;
-  List _checkBoxValues = new List();
+  List <bool> _checkBoxValues = new List();
   String _userTextAnswer;
 
 

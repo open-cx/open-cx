@@ -28,21 +28,15 @@ List<Widget>  listQuestionStatistics(BuildContext context, var questionId) {
   String questionText = controller.getQuestionText(questionId);
   QuestionType questionType = controller.getQuestionType(questionId);
 
-  if (questionType == QuestionType.checkBox ||
-      questionType == QuestionType.radioButton) {
+  if (questionType == QuestionType.checkBox || questionType == QuestionType.radioButton) {
+
     List<String> questionSubText = controller.getSubQuestionText(questionId);
     QuestionType type = controller.getQuestionType(questionId);
-    if (type == QuestionType.textBox) {
-      widgetsList.add(Container(
-          padding: EdgeInsets.only(left: 30),
-          child: Text(questionText,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black)
-          )
-      ));
-    }
+
     widgetsList.add(SizedBox(
       height: 10,
     ));
+
     for (int i = 0; i < questionSubText.length; i++) {
       widgetsList.add(Container(
           margin: EdgeInsets.all(10),

@@ -218,28 +218,43 @@ class Controller
   }
 
 
-  List<String> getSubQuestionText(var questionId) {
+  List<String> getSubQuestionText(int questionId) {
+    List result = new List();
+
     for (int i = 0; i < db.formQuestionList.length; i++) {
       if (db.formQuestionList[i].id == questionId) {
-        return db.formQuestionList[i].questionSubText;
+        result = db.formQuestionList[i].questionSubText;
+        break;
       }
     }
+
+    return result;
   }
 
-  String getQuestionText(var questionId) {
-    for (int i = 0; i < db.formQuestionList.length; i++) {
-      if (db.formQuestionList[i].id == questionId) {
+  String getQuestionText(int questionId)
+  {
+    for (int i = 0; i < db.formQuestionList.length; i++)
+    {
+      if (db.formQuestionList[i].id == questionId)
+      {
         return db.formQuestionList[i].questionText;
       }
     }
+
+    return null;
   }
 
-  QuestionType getQuestionType(var questionId) {
-    for (int i = 0; i < db.formQuestionList.length; i++) {
-      if (db.formQuestionList[i].id == questionId) {
+  QuestionType getQuestionType(int questionId)
+  {
+    for (int i = 0; i < db.formQuestionList.length; i++)
+    {
+      if (db.formQuestionList[i].id == questionId)
+      {
         return db.formQuestionList[i].type;
       }
     }
+
+    return null;
   }
 
   String getUsernameFromId(int personId) {
@@ -263,9 +278,11 @@ class Controller
     return percentageTextBox.toStringAsFixed(2).toString();
   }
 
-  int numberOfResponses(int questionId) {
+  int numberOfResponses(int questionId)
+  {
     int counter = 0;
 
+    if(db.responseList != null)
     for (int i = 0; i < db.responseList.length; i++) {
       if (db.responseList[i].questionId == questionId) {
         counter++;
@@ -288,11 +305,13 @@ class Controller
     return counter;
   }
 
-  int numberOfFavorableResponses(int questionId, String response) {
+  int numberOfFavorableResponses(int questionId, String response)
+  {
     QuestionType type = getQuestionType(questionId);
     int counter = 0;
 
-    if (type == QuestionType.checkBox) {
+    if (type == QuestionType.checkBox)
+    {
       for (int i = 0; i < db.responseList.length; i++) {
         for (int j = 0; j < db.responseList[i].response.length; j++) {
           if (db.responseList[i].response[j] == response) {
@@ -301,21 +320,20 @@ class Controller
         }
       }
     } else if (type == QuestionType.radioButton) {
-      for (int i = 0; i < db.responseList.length; i++) {
-        if (db.responseList[i].response == response) {
-          counter++;
+        for (int i = 0; i < db.responseList.length; i++) {
+          if (db.responseList[i].response == response) {
+            counter++;
+          }
         }
-      }
     }
     return counter;
   }
 
-  String questionAnswerPercentage(int questionId, var response) {
+  String questionAnswerPercentage(int questionId, String response)
+  {
     int numberOfResponsesForQuestion = numberOfResponses(questionId);
-    int numberOfFavorableResponsesForQuestion =
-    numberOfFavorableResponses(questionId, response);
-    double percentage =
-        numberOfFavorableResponsesForQuestion / numberOfResponsesForQuestion;
+    int numberOfFavorableResponsesForQuestion = numberOfFavorableResponses(questionId, response);
+    double percentage = numberOfFavorableResponsesForQuestion / numberOfResponsesForQuestion;
     percentage = percentage * 100;
     return percentage.toStringAsFixed(2).toString();
   }
@@ -493,10 +511,49 @@ class Controller
     return id;
   }
 
-  int addResponse(type, response, questionId, userId)
+  String swapIDForString(int questionID, int radioBoxValue)
+  {
+    for(int i = 0; i < db.formQuestionList.length; i++)
+      {
+        if(db.formQuestionList[i].id == questionID)
+            return db.formQuestionList[i].questionSubText[radioBoxValue];
+      }
+  }
+
+  List<String> swapIDsForString(int questionID, List<bool> checkBoxValues)
+  {
+    List<String> results = new List();
+
+    for(int i = 0; i < checkBoxValues.length; i++)
+      {
+        print(checkBoxValues[i]);
+        if(checkBoxValues[i])
+          results.add(swapIDForString(questionID, i));
+      }
+
+    return results;
+  }
+
+  int addResponse(QuestionType type, var response, int questionId, int userId)
   {
     int id = db.responseList.length + 1;
-    db.responseList.add(new Response(id, type, response, questionId, userId));
+
+    switch(type)
+    {
+
+      case QuestionType.radioButton:
+        String response_res = swapIDForString(questionId, response);
+        db.responseList.add(new Response(id, type, response_res, questionId, userId));
+        break;
+      case QuestionType.checkBox:
+        List<String> response_res = swapIDsForString(questionId, response);
+        db.responseList.add(new Response(id, type, response_res, questionId, userId));
+        break;
+      case QuestionType.textBox:
+        db.responseList.add(new Response(id, type, response, questionId, userId));
+        break;
+    }
+
     return id;
   }
 

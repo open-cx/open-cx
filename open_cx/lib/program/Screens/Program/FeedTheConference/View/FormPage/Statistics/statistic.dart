@@ -97,6 +97,7 @@ class QuestionText extends StatelessWidget {
       );
     }
     else {
+      print(questionText);
       return Container(
           color: Colors.grey[200],
           padding: const EdgeInsets.all(10),

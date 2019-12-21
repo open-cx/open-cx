@@ -334,7 +334,7 @@ class _AddQuestionTextState extends State<AddQuestionText> {
                         }
                       });
                     },
-                    items: <String>['Text', 'Radio Button', 'Checkbox']
+                    items: <String>['Text', 'Radio Button', /*'Checkbox'*/]
                         .map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
