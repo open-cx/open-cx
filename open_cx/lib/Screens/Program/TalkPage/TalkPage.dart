@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:open_cx/Screens/Program/Askkit/Pages/ReviewsPage.dart';
 
 import '../../../Components/displayAllThemes.dart';
 import '../../../Model/Talk.dart';
@@ -33,6 +34,10 @@ class TalkPageState extends State<TalkPage> {
         ),
         backgroundColor: Color(0xFF28316C),
         actions: <Widget>[
+          FlatButton(
+            child: Text("Reviews", style: TextStyle(color: Theme.of(context).canvasColor)),
+            onPressed: ()  => Navigator.push(context, MaterialPageRoute(builder: (context) => ReviewsPage(widget.talk, MyController()))),
+            ),
           FlatButton(
             child: Text("Questions", style: TextStyle(color: Theme.of(context).canvasColor)),
             onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => QuestionsPage(widget.talk, MyController()))),

@@ -1,3 +1,5 @@
+import 'package:open_cx/Model/Review.dart';
+
 import '../../../../Model/Answer.dart';
 import '../../../../Model/Question.dart';
 import '../../../../Model/Talk.dart';
@@ -23,6 +25,7 @@ class MyController implements DatabaseController {
   static List<Question> questions = new List();
   static List<Answer> answers = new List();
   static List<Upvote> upvotes = new List();
+  static List<Review> reviews = new List();
 
   @override
   Future<Answer> addAnswer(Question question, String content) {
@@ -131,4 +134,26 @@ class MyController implements DatabaseController {
     questionUpvotes.forEach((upvote) => sum += upvote.value);
     return Future.value(sum);
   }
-}
+
+  @override
+  Future<Review> addReview(Talk talk, String body) {
+    reviews.add(new Review(talk, currentUser, body, DateTime.now()));
+    return Future.value(reviews[reviews.length - 1]);
+  }
+
+  @override
+  Future<void> editReview(Review review, String newReview) {
+    review.content = newReview;
+    review.edited = true;
+  }
+
+  @override
+  Future<void> deleteReview(Review review) {
+    reviews.remove(review);
+  }
+
+  @override
+  Future<List<Review>> getReviews(Talk talk) async {
+      return reviews.where((review) => review.talk == talk).toList();
+    }
+  }

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:open_cx/Model/Review.dart';
 
 import '../../../../Model/Answer.dart';
 import '../../../../Model/Question.dart';
@@ -136,4 +137,27 @@ class EditAnswerPage extends ManageCommentPage {
   @override String getHeaderPrefix() => "Old reply: ";
   @override String getHeaderSuffix() => this.answer.content;
   @override String initialContent() => this.answer.content;
+}
+
+
+class NewReviewPage extends ManageCommentPage {
+  final Talk talk;
+  NewReviewPage(this.talk) : super("Type review", "Review can't be empty", "New review") {
+    ManageCommentPage.setControllerText("");
+  }
+
+  @override String getHeaderPrefix() => "Posting in: ";
+  @override String getHeaderSuffix() => this.talk.name;
+  @override String initialContent() => "";
+}
+
+class EditReviewPage extends ManageCommentPage {
+  final Review review;
+  EditReviewPage(this.review) : super("Type review", "Review can't be empty", "New review") {
+    ManageCommentPage.setControllerText(this.review.content);
+  }
+
+  @override String getHeaderPrefix() => "Old reply: ";
+  @override String getHeaderSuffix() => this.review.content;
+  @override String initialContent() => this.review.content;
 }

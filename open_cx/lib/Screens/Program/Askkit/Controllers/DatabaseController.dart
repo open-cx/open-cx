@@ -1,6 +1,8 @@
 
 
 
+import 'package:open_cx/Model/Review.dart';
+
 import '../../../../Model/Answer.dart';
 import '../../../../Model/Question.dart';
 import '../../../../Model/Talk.dart';
@@ -9,6 +11,8 @@ import '../../../../Model/User.dart';
 abstract class DatabaseController {
   Future<Question> addQuestion(Talk talk, String content);
   Future<Answer> addAnswer(Question question, String content);
+  Future<Review> addReview(Talk talk, String content);
+
 
   User getCurrentUser();
   bool isAdmin();
@@ -29,4 +33,8 @@ abstract class DatabaseController {
 
   Future<void> flagQuestionAsAnswered(Question question);
   Future<void> flagAnswerAsBest(Answer answer, bool isBest);
+
+  Future<List<Review>> getReviews(Talk talk);
+  Future<void> editReview(Review review, String newReview);
+  Future<void> deleteReview(Review review);
 }
