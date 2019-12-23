@@ -1,12 +1,15 @@
 import 'dart:async';
 import 'dart:core';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_blue/flutter_blue.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:open_cx/networking/model/app_state.dart';
 
 import 'micro_bit_uart_service.dart';
 
 class MicroBit {
-  //RECEBER A STORE
+
   static const int scanDuration = 2;
   static const int maxNumTries = 100;
 
@@ -14,16 +17,13 @@ class MicroBit {
   BluetoothDevice microbit;
   MicroBitUARTservice uartService;
 
-  bool connected;
+  bool connected = false;
 
-  MicroBit() {
-    this.connected = false;
-  }
-
-  Future<bool> connect(String deviceName) async {
+  Future<bool> connect(context, String deviceName) async {
     // Start scanning
-    //TO DO
-   // if(scanning_on is false on the store)
+    bool scanning_on = StoreProvider.of<AppState>(context).state.content['scanning_on'];
+
+    if(!scanning_on)
       flutterBlue.startScan(timeout: Duration(seconds: scanDuration));
 
     int numTries = 0;
@@ -48,9 +48,8 @@ class MicroBit {
       }
     }
 
-    // Stop scanning TO DO
-//    if(scanning_on is false on the store)
-//      flutterBlue.stopScan();
+    if(!scanning_on)
+      flutterBlue.stopScan();
 
     if (found) {
       print('Moving to MB');

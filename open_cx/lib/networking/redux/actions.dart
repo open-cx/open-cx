@@ -20,14 +20,14 @@ class IncrementCounterAction implements ReduceableAction {
 
 class FoundPersonAction implements ReduceableAction {
   final String uuid;
-  final PersonFound personFound;
+  final User personFound;
   FoundPersonAction(this.uuid, this.personFound);
 
   @override
   reduceAction(AppState state) {
     Logger().i('Adding a new person of '
         'id ${uuid} and name ${personFound.name}');
-    final Map<String, PersonFound> bluetoothDevices =
+    final Map<String, User> bluetoothDevices =
         state.content['bluetooth_devices'];
     bluetoothDevices.putIfAbsent(uuid, () => personFound);
     return state.cloneAndUpdateValue('bluetooth_devices', bluetoothDevices);
@@ -40,7 +40,7 @@ class RemovePersonAction implements ReduceableAction{
 
   @override
   AppState reduceAction(AppState state) {
-    final Map<String, PersonFound> bluetoothDevices =
+    final Map<String, User> bluetoothDevices =
     state.content['bluetooth_devices'];
     bluetoothDevices.remove(uuid);
     return state.cloneAndUpdateValue('bluetooth_devices', bluetoothDevices);

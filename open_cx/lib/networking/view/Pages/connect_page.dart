@@ -4,23 +4,20 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:open_cx/networking/controller/micro_bit.dart';
-import 'package:open_cx/networking/model/person_found.dart';
+import 'package:open_cx/networking/model/user.dart';
 
 class ConnectionsPage extends StatefulWidget {
+
   @override
   _ConnectPageState createState() => _ConnectPageState();
 }
 
-//TO DO: solve id from user
-
-
 class _ConnectPageState extends State<ConnectionsPage> {
-  //TO DO PASSAR REFERENCIA À STORE PARA A CONNECT PAGE E ENVIA LA PARA A CLASSE MICROBIT
   static MicroBit microbit = new MicroBit();
   static List<int> _idsList = new List<int>();
   static bool _active = false;
   static BluetoothState _bluetoothState;
-  static List<PersonFound> _connections = <PersonFound>[];
+  static List<User> _connections = <User>[];
 
   @override
   void initState() {
@@ -65,7 +62,7 @@ class _ConnectPageState extends State<ConnectionsPage> {
     }
   }
 
-  Widget _buildRow(PersonFound user) {
+  Widget _buildRow(User user) {
     return ExpansionTile(
       leading: CircleAvatar(
         child: Container(),
@@ -84,7 +81,6 @@ class _ConnectPageState extends State<ConnectionsPage> {
             textAlign: TextAlign.center,
           ),
         ),
-     //   pairButton(user) //TO DO
       ],
     );
   }
@@ -205,7 +201,7 @@ class _ConnectPageState extends State<ConnectionsPage> {
                           _microbitDialog(context).then((name) {
                             print('Connecting...');
                             if (name != null && name != '') {
-                              microbit.connect(name).then((connected) {
+                              microbit.connect(context, name).then((connected) {
                                 if (connected) {
                                   print('Connection Successful');
 //                                  microbit

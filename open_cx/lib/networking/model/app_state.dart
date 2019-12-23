@@ -10,7 +10,7 @@ class AppState {
     return {
       "counter": 0,
       "scanning_on": false,
-      "bluetooth_devices": Map<String, PersonFound>(),
+      "bluetooth_devices": Map<String, User>(),
       "friends": Set<KnownPerson>(),
       "current_filters": Set<String>(),
       "user_id": "5dd82f004073ad3bb92b80dc",
