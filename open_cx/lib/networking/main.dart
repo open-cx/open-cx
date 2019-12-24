@@ -2,6 +2,7 @@ import 'package:open_cx/networking/controller/friend_notifications.dart';
 import 'package:open_cx/networking/model/app_state.dart';
 import 'package:open_cx/networking/redux/reducers.dart';
 import 'package:open_cx/networking/view/Pages/bluetooth_beacon_selection.dart';
+import 'package:open_cx/networking/view/Pages/connect_page.dart';
 import 'package:open_cx/networking/view/Pages/connected_listing_page.dart';
 import 'package:open_cx/networking/view/Pages/create_profile_page.dart';
 import 'package:open_cx/networking/view/Pages/friend_requests_page.dart';
@@ -76,6 +77,10 @@ class CommunioAppState extends State<Communio> {
               case '/ListConnected':
                 return MaterialPageRoute(
                     builder: (context) => ConnectedListingPage(),
+                    settings: settings);
+              case '/Connect by micro:bit':
+                return MaterialPageRoute(
+                    builder: (context) => ConnectionsPage(),
                     settings: settings);
               case '/Settings':
                 return MaterialPageRoute(

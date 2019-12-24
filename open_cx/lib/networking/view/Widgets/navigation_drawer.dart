@@ -21,6 +21,7 @@ class NavigationDrawerState extends State<NavigationDrawer> {
     "Homepage",
     "PeopleSearch",
     "ListConnected",
+    "Connect by micro:bit",
     "Settings", 
     "QRCode",
     "Profile",
