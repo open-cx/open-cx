@@ -1,5 +1,3 @@
-let Forum = require('../../models/forum');
-
 const forums = require('express').Router();
 
 const all = require('./all');

@@ -13,20 +13,75 @@ description: openCX
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 version: 1.0.0+1
 
+cloud_firestore: 0.7.3
+firebase_admob: 0.5.5
+firebase_auth: 0.5.11
+google_sign_in: 3.0.4
+firebase_analytic: 1.0.1
+firebase_core: 0.2.4
+firebase_database: 1.0.1
+firebase_dynamic_links: 0.02
+firebase_messaging: 1.0.2
+firebase_performance: 0.0.3
+firebase_remote_config: 0.0.4
+firebase_storage: 0.3.7
+
 environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
+  intl: ^0.15.8
+  firebase_messaging:
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  flutter_local_notifications: ^0.8.4+3
+  flutter_markdown: ^0.3.2
+  url_launcher: ^5.2.7
+  material_design_icons_flutter: ^2.7.94
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+  html: ^0.13.3+3
+  flutter_redux: ^0.5.2
+  redux_thunk: ^0.2.1
+  http: ^0.12.0+1
+  query_params: '^0.6.1'
+  tuple: ^1.0.2
+  path_provider: any
+  sqflite: ^1.1.0
+  path: ^1.6.2
+  cached_network_image: ^1.1.0
+  flutter_svg: ^0.13.1
+  synchronized: ^2.1.0
+  toast: ^0.1.5
+  logger: ^0.7.0+2
+  flutter_blue: 0.6.2
+  flutter_barcode_scanner: ^0.1.7
+  qr_flutter: ^3.1.0
+  socket_io_client: ^0.9.7+1
+  flutter_dotenv: ^2.0.3
+  image_picker:
+  google_maps_flutter: ^0.5.5
+  autocomplete_textfield: ^1.6.4
+  geolocator: ^5.1.5
+  connectivity: ^0.4.5
+  fluttertoast: ^3.1.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.7.4 #guideasy_app
+
+#guideasy_app
+flutter_icons:
+  image_path: 'assets/guideasy_app/icon.png'
+  android: true
+  ios: true
+#guideasy_app
 
 
 # For information on the generic Dart part of this file, see the
@@ -41,32 +96,58 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #  - images/a_dot_burr.jpeg
-  #  - images/a_dot_ham.jpeg
-
+  assets:
+    - assets/images/porto.png
+    - assets/
+    - assets/fonts/
+    - .env 
+    - assets/icon/
+    - assets/guideasy_app/splash_screen/ #guideasy_app
+    - assets/guideasy_app/locations_db/ #guideasy_app
   # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/assets-and-images/#resolution-aware.
+  # https://flutter.io/assets-and-images/#resolution-aware.
 
   # For details regarding adding assets from package dependencies, see
-  # https://flutter.dev/assets-and-images/#from-packages
+  # https://flutter.io/assets-and-images/#from-packages
 
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+
+  fonts:
+    - family: Pacifico
+      fonts:
+        - asset: fonts/guideasy_app/Pacifico-Regular.ttf
+    - family: Roboto
+      fonts:
+        - asset: fonts/guideasy_app/Roboto-Regular.ttf
+        - asset: fonts/guideasy_app/Roboto-Light.ttf
+        - asset: fonts/guideasy_app/Roboto-Medium.ttf
+        - asset: fonts/guideasy_app/Roboto-Thin.ttf
+    - family: Ubuntu
+      fonts:
+        - asset: assets/fonts/Ubuntu-Regular.ttf
+    - family: Nunito
+      fonts:
+        - asset: assets/fonts/Nunito-Black.ttf
+          weight: 900
+        - asset: assets/fonts/Nunito-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Nunito-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/Nunito-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/Nunito-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Nunito-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Nunito-SemiBold.ttf
+          weight: 600
+    - family:  GuideasyIcons
+      fonts:
+        - asset: fonts/guideasy_app/GuideasyIcons.ttf
   #
   # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+  # see https://flutter.io/custom-fonts/#from-packages

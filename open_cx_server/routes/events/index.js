@@ -1,5 +1,3 @@
-let Event = require('../../models/event');
-
 const events = require('express').Router();
 
 const all = require('./all');
