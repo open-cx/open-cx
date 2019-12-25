@@ -18,7 +18,6 @@ class NavigationDrawerState extends State<NavigationDrawer> {
   NavigationDrawerState({@required this.parentContext});
 
   static final drawerItems = [
-    "Homepage",
     "PeopleSearch",
     "ListConnected",
     "Connect by micro:bit",
