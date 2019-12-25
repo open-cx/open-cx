@@ -99,7 +99,7 @@ flutter:
     - assets/images/porto.png
     - assets/
     - assets/fonts/
-    - .env 
+    #- .env # This file does not exist
     - assets/icon/
     - assets/guideasy_app/splash_screen/ #guideasy_app
     - assets/guideasy_app/locations_db/ #guideasy_app
