@@ -9,6 +9,8 @@ const Participant = require('./models/participant');
 const Question = require('./models/question');
 const Speaker = require('./models/speaker');
 const Talk = require('./models/talk');
+const Conference = require('./models/conference');
+
 const POI = require('./models/poi');
 const POIType = require('./models/poi_type');
 const FriendRequest = require('./models/friend_request');
@@ -53,6 +55,9 @@ const adminBro = new AdminBro({
     },
     {
       resource: Talk,
+    },
+    {
+      resource: Conference,
     },
     {
       resource: POI,

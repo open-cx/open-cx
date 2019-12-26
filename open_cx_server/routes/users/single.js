@@ -35,6 +35,42 @@ singleUser.post("/login", async (req, res) => {
   res.send("User logged in successfully.");
 });
 
+singleUser.get('/:userId/matches', async (req, res) => {
+
+  try {
+    //Gets all the tags of the specified user
+    const user = await User.findById(req.params.userId);
+    var userTags = user['tags'];
+    var tagsJson = {}
+    var k=0;
+
+    //Generates json object with Users that selected each of the tags
+    for (i=0; i < userTags.length; i++) {
+
+      const usersWithTag = await User.find({ $and: [ {tags: userTags[i]}, { _id: { $ne: req.params.userId}} ] });
+
+      
+      if (usersWithTag.length) {
+
+        for (j=0; j < usersWithTag.length; j++) {
+          // console.log(usersWithTag[j]["username"]);
+          tagsJson[usersWithTag[j]["username"]] = usersWithTag[j];
+          k++;
+        }
+
+      }
+  }
+  
+    //Sends response
+    res.json(tagsJson);
+  }
+
+  catch (err) {
+    res.json({ message: err });
+  }
+
+});
+
 /**
  * Registers a new user.
  * Checks if the email is already in use. If not, creates a new user and
