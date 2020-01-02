@@ -1,0 +1,3 @@
+In order to have the application working, one needs to create a new Flutter Web Project and paste these 2 dart files on the lib folder. 
+SessionScreen is the first page that will be shown to the user, asking for a session ID. However, this could be removed if it doesn't fit
+the main project. We are not sure on what to specifically integrate, since there are multiple Q/A apps with different approaches.
