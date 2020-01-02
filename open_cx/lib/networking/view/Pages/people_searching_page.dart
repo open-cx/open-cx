@@ -50,7 +50,7 @@ class PeopleSearchingPage extends StatelessWidget {
     return filteredDevices;
   }
 
-  generatePersonCard(BuildContext context, String device, PersonFound person) {
+  generatePersonCard(BuildContext context, String device, User person) {
     return new Container(
         padding: EdgeInsets.only(
             right: horizontalPadding,
@@ -83,7 +83,7 @@ class PeopleSearchingPage extends StatelessWidget {
   }
 
   generateConnectionButton(
-      BuildContext context, String device, PersonFound person) {
+      BuildContext context, String device, User person) {
     return IconButton(
       icon: Icon(
         Icons.person_add,

@@ -31,7 +31,7 @@ ThunkAction<AppState> scanForDevices() {
       final Iterable people = json.decode(utf8.decode(response.bodyBytes));
       people.forEach((person) {
         store.dispatch(
-            FoundPersonAction(person['_id'], PersonFound.fromJson(person)));
+            FoundPersonAction(person['_id'], User.fromJson(person)));
       });
     }
 

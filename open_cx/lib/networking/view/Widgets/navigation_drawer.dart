@@ -20,6 +20,7 @@ class NavigationDrawerState extends State<NavigationDrawer> {
   static final drawerItems = [
     "PeopleSearch",
     "ListConnected",
+    "Connect by micro:bit",
     "Settings", 
     "QRCode",
     "Profile",
