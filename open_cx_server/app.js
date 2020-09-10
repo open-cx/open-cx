@@ -41,6 +41,17 @@ if (process.env.DB_CONNECTION) {
   // Connect to local database
 }
 
-app.listen(PORT);
+
+if (process.env.NODE_ENV !== 'test') {
+  const server = app.listen(PORT);
+  const io = require('socket.io')(server);
+  // const server = app.listen(PORT);
+  const cache = require('./socket')(io);
+  
+  app.set('cache', cache);
+  app.set('socketio', io);
+}
 
 console.log(`Running on http://${HOST}:${PORT}`);
+
+module.exports = app;

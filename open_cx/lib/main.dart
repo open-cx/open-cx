@@ -14,6 +14,8 @@ import 'package:communio/view/navigation_service.dart';
 import 'package:communio/view/Pages/homepage_view.dart';
 import 'package:communio/controller/middleware.dart';
 import 'package:flutter/material.dart';
+import 'package:open_cx/networking/main.dart';
+import 'package:open_cx/program/AgendApp.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_redux/flutter_redux.dart';
@@ -21,7 +23,6 @@ import 'view/theme.dart';
 import 'model/app_state.dart';
 import 'package:redux/redux.dart';
 import 'redux/reducers.dart';
-
 
 
 initialLoad() async {
@@ -32,6 +33,23 @@ initialLoad() async {
     middleware: [generalMiddleware]);
   setupNotifications(state.state.content['user_id']);
   enableApp(state);
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'ESOF Demo',
+      theme: ThemeData(
+        primaryColor: Color.fromRGBO(3, 44, 115, 1),
+      ),
+      initialRoute: '/',
+      routes: {
+        "/": (context) => HomePage(),
+        "/yourPage": (context) => YourProject(),
+        "/agendAppMain": (context) => AgendAppMain(),
+        "/communio": (context) => Communio()
+      },
+    );
+  }
 }
 
 enableApp(Store<AppState> state){
