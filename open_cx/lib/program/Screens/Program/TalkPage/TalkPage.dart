@@ -6,6 +6,7 @@ import '../../../Components/displayAllThemes.dart';
 import '../../../Model/Talk.dart';
 import '../Askkit/Controllers/MyController.dart';
 import '../Askkit/Pages/QuestionsPage.dart';
+import '../Askkit/Pages/ReviewsPage.dart';
 
 
 class TalkPage extends StatefulWidget {
@@ -33,6 +34,10 @@ class TalkPageState extends State<TalkPage> {
         ),
         backgroundColor: Color(0xFF28316C),
         actions: <Widget>[
+          FlatButton(
+            child: Text("Reviews", style: TextStyle(color: Theme.of(context).canvasColor)),
+            onPressed: ()  => Navigator.push(context, MaterialPageRoute(builder: (context) => ReviewsPage(widget.talk, MyController()))),
+          ),
           FlatButton(
             child: Text("Questions", style: TextStyle(color: Theme.of(context).canvasColor)),
             onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => QuestionsPage(widget.talk, MyController()))),

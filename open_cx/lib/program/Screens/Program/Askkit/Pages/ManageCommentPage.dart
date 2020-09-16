@@ -5,6 +5,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import '../../../../Model/Answer.dart';
 import '../../../../Model/Question.dart';
 import '../../../../Model/Talk.dart';
+import '../../../../Model/Review.dart';
 import '../Widgets/CustomDialog.dart';
 import '../Widgets/CustomTextForm.dart';
 
@@ -155,4 +156,26 @@ class EditAnswerPage extends ManageCommentPage {
   @override String getHeaderPrefix() => "Old reply: ";
   @override String getHeaderSuffix() => this.answer.content;
   @override String initialContent() => this.answer.content;
+}
+
+class NewReviewPage extends ManageCommentPage {
+  final Talk talk;
+  NewReviewPage(this.talk) : super("talk", "user" , "Review can't be empty", true) {
+    ManageCommentPage.setControllerText("");
+  }
+
+  @override String getHeaderPrefix() => "Posting in: ";
+  @override String getHeaderSuffix() => this.talk.name;
+  @override String initialContent() => "";
+}
+
+class EditReviewPage extends ManageCommentPage {
+  final Review review;
+  EditReviewPage(this.review) : super("talk", "user" , "Review can't be empty", true) {
+    ManageCommentPage.setControllerText(this.review.content);
+  }
+
+  @override String getHeaderPrefix() => "Old reply: ";
+  @override String getHeaderSuffix() => this.review.content;
+  @override String initialContent() => this.review.content;
 }
