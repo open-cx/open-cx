@@ -1,6 +1,8 @@
-import 'package:open_cx/Model/User.dart';
+import 'package:open_cx/program/Model/User.dart';
+
+import '../program/Model/User.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:open_cx/Screens/MenuOpen.dart';
+import '../program/Screens/MenuOpen.dart';
 import 'database.dart';
 
 class AuthService {

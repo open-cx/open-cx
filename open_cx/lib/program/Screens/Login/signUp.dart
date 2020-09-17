@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:open_cx/Components/SnackBar.dart';
-import 'package:open_cx/Model/User.dart';
+import '../../Model/User.dart';
 import 'package:open_cx/Services/auth.dart';
 
 import 'login.dart';

@@ -1,4 +1,4 @@
-import 'package:open_cx/Model/User.dart';
+import '../program/Model/User.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DatabaseService {

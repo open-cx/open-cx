@@ -9,7 +9,7 @@ import '../../Model/User.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
-import 'package:open_cx/Screens/MenuOpen.dart';
+import '../MenuOpen.dart';
 import 'package:open_cx/Screens/People/createChat.dart';
 import 'package:open_cx/Screens/People/detailChat.dart';
 

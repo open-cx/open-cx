@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
-import 'package:open_cx/Screens/MenuOpen.dart';
+import '../../program/Screens/MenuOpen.dart';
 import 'package:open_cx/Services/chat.dart';
 
 import 'detailChat.dart';
