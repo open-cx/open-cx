@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:open_cx/Components/SnackBar.dart';
+import '../../Model/User.dart';
+import 'package:open_cx/Services/auth.dart';
 import '../MenuOpen.dart';
 import 'signUp.dart';
 import 'recoverPassword.dart';
@@ -13,6 +16,13 @@ class _LoginPageState extends State<LoginPage> {
 
   bool _isHidden = true;
 
+  final AuthService _auth = AuthService();
+
+  TextEditingController loginEmailController = new TextEditingController();
+  TextEditingController loginPasswordController = new TextEditingController();
+
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
   void _toggleVisibility() {
     setState(() {
       _isHidden = !_isHidden;
@@ -22,6 +32,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: Color(0xFF283468),
       resizeToAvoidBottomPadding: false,
       body: Container(
@@ -31,7 +42,8 @@ class _LoginPageState extends State<LoginPage> {
             fit: BoxFit.cover,
           ),
         ),
-        padding: EdgeInsets.only(top: 100.0, right: 25.0, left: 25.0, bottom: 0.0),
+        padding: EdgeInsets.only(
+            top: 100.0, right: 25.0, left: 25.0, bottom: 0.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
@@ -56,11 +68,11 @@ class _LoginPageState extends State<LoginPage> {
             SizedBox(
               height: 60.0,
             ),
-            buildTextField("Username"),
+            buildTextField("Email", loginEmailController),
             SizedBox(
               height: 20.0,
             ),
-            buildTextField("Password"),
+            buildTextField("Password", loginPasswordController),
             SizedBox(
               height: 20.0,
             ),
@@ -71,7 +83,8 @@ class _LoginPageState extends State<LoginPage> {
                   GestureDetector(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (BuildContext context) => RecoverPasswordPage()
+                          builder: (BuildContext context) =>
+                              RecoverPasswordPage()
                       ));
                     },
                     child: Text(
@@ -105,8 +118,8 @@ class _LoginPageState extends State<LoginPage> {
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute<Null>(
                               builder: (BuildContext context) {
-                            return new SignUpPage();
-                          }));
+                                return new SignUpPage();
+                              }));
                         },
                         child: Text("SIGN UP",
                             style: TextStyle(
@@ -123,8 +136,9 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget buildTextField(String hintText) {
+  Widget buildTextField(String hintText, TextEditingController controller) {
     return TextField(
+      controller: controller,
       style: new TextStyle(color: Colors.white),
       decoration: InputDecoration(
         hintText: hintText,
@@ -135,16 +149,16 @@ class _LoginPageState extends State<LoginPage> {
         // border: OutlineInputBorder(
         //   borderRadius: BorderRadius.circular(20.0),
         // ),
-        prefixIcon: hintText == "Username"
-            ? Icon(Icons.account_circle)
+        prefixIcon: hintText == "Email"
+            ? Icon(Icons.email)
             : Icon(Icons.lock),
         suffixIcon: hintText == "Password"
             ? IconButton(
-                onPressed: _toggleVisibility,
-                icon: _isHidden
-                    ? Icon(Icons.visibility_off)
-                    : Icon(Icons.visibility),
-              )
+          onPressed: _toggleVisibility,
+          icon: _isHidden
+              ? Icon(Icons.visibility_off)
+              : Icon(Icons.visibility),
+        )
             : null,
       ),
       obscureText: hintText == "Password" ? _isHidden : false,
@@ -154,14 +168,16 @@ class _LoginPageState extends State<LoginPage> {
   Widget buildButtonContainer() {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context)
-            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new MenuPage();
-        }));
+        print("Pass: " + loginPasswordController.text);
+        print("Email: " + loginEmailController.text);
+        _signIn();
       },
       child: Container(
         height: 56.0,
-        width: MediaQuery.of(context).size.width,
+        width: MediaQuery
+            .of(context)
+            .size
+            .width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.0),
           color: Colors.white,
@@ -179,4 +195,34 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
+
+  bool _validSignInInput() {
+    if (loginEmailController.text.isEmpty) {
+      showInSnackBar(_scaffoldKey, 'Provide an email');
+      return false;
+    } else if (loginPasswordController.text.isEmpty) {
+      showInSnackBar(_scaffoldKey, 'Provide a password');
+      return false;
+    }
+    return true;
+  }
+
+  void _signIn() async {
+    if (_validSignInInput()) {
+//      setState(() => loading = true);
+      User user = await _auth.signInWithEmailAndPassword(
+          loginEmailController.text, loginPasswordController.text);
+      if (user == null) {
+//        setState(() => loading = false);
+        showInSnackBar(
+            _scaffoldKey, 'Could not sign in with those credentials');
+      } else {
+        Navigator.of(context)
+            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          return new MenuPage();
+        }));
+      }
+    }
+  }
+
 }

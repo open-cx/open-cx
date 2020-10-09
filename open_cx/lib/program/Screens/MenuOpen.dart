@@ -34,7 +34,7 @@ final List<ThemeTalk> interests = [allThemes[1], allThemes[2], allThemes[3]];
 
 
 
-final user = new User("Tiago Miller", "tigasmiller@gmail.com", userThemes, "https://yt3.ggpht.com/a/AGF-l791z2rgw2RhBFQ2vnnI3wuxwMdZSNXI3U1LgQ=s176-c-k-c0x00ffffff-no-rj-mo");
+final user = new User(name: "Tiago Miller", email:"tigasmiller@gmail.com",preferredThemes: userThemes, photo: "https://yt3.ggpht.com/a/AGF-l791z2rgw2RhBFQ2vnnI3wuxwMdZSNXI3U1LgQ=s176-c-k-c0x00ffffff-no-rj-mo", uid: 'qwdadwqdasd');
 
 final List<Talk> talkList = [
   new Talk(talkId++,new DateTime(2019, 12, 8, 8, 0), new DateTime(2019, 12, 8, 9, 30), "Drones and food delivery: A marriage made in Heaven", "There are so many food delivery unicorns, but could getting your food delivery be bad for the planet?", "Room 101", false, false, [speakers[0], speakers[3]], [allThemes[0]]),
@@ -65,6 +65,7 @@ class MenuPage extends StatefulWidget {
   MenuPage({Key key, this.title}) : super(key: key);
 
   final String title;
+  static User firebaseUser;
 
   @override
   _MenuPageState createState() => _MenuPageState();
@@ -78,11 +79,15 @@ class _MenuPageState extends State<MenuPage> {
     ProgramPage(talkList, user, allThemes),
     GuideasyApp(),
     PeoplePage(talkList, user, allThemes),
+    VenuePage(talkList, user, allThemes),
     HelpPage(talkList, user, allThemes),
   ];
 
   @override
   Widget build(BuildContext context) {
+    if (MenuPage.firebaseUser != null){
+      print(MenuPage.firebaseUser.uid);
+    }
     return Scaffold(
       body:_children[_selectedPageIndex],
       resizeToAvoidBottomInset : false,
