@@ -6,11 +6,11 @@ It explores technologies in the areas of Internet of Things (IoT) and multimedia
 
 These apps are based on the results of the [thesis of Pedro Ayala (Master on Multimedia)](https://sigarra.up.pt/feup/pt/pub_geral.show_file?pi_doc_id=159427), supervised by Ademar Aguiar and Miguel Carvalhais. 
 
-openCX is planned to be released under an opensource license.
+openCX is planned to be released under an open-source license.
 
 Teams
 ---
-openCX development started in the context of the Software Engineering course of the Master in Informatics and Computing Engineering ([MIEIC/ESOF](https://sigarra.up.pt/feup/en/UCURR_GERAL.FICHA_UC_VIEW?pv_ocorrencia_id=436443)), coordinated by [Ademar Aguiar](https://sigarra.up.pt/feup/en/func_geral.formview?p_codigo=231081), [Filipe Correia](https://sigarra.up.pt/feup/en/func_geral.formview?p_codigo=486352), and [Rui Neves](https://sigarra.up.pt/feup/en/func_geral.formview?p_codigo=618538), with contributions from [36 development teams of students](https://sigarra.up.pt/feup/en/fest_geral.fotos_estud_inscritos_list?pv_ocorrencia_id=436443&pv_dimensao_matriz=6) from MIEIC/ESOF course, 2019/20 edition, [2 agile coaches (João Damas and David Reis)](), students from MIEIC/MADS course, 2019/20 edition, and [João Pedro Dias](https://jpdias.me), as IoT expert, doctoral student of ProDEI. 
+openCX development started in the context of the Software Engineering course of the Master in Informatics and Computing Engineering ([MIEIC/ESOF](https://sigarra.up.pt/feup/en/UCURR_GERAL.FICHA_UC_VIEW?pv_ocorrencia_id=436443)), coordinated by [Ademar Aguiar](https://sigarra.up.pt/feup/en/func_geral.formview?p_codigo=231081), [Filipe Correia](https://sigarra.up.pt/feup/en/func_geral.formview?p_codigo=486352), and [Rui Neves](https://sigarra.up.pt/feup/en/func_geral.formview?p_codigo=618538), with contributions from [36 development teams of students](https://sigarra.up.pt/feup/en/fest_geral.fotos_estud_inscritos_list?pv_ocorrencia_id=436443&pv_dimensao_matriz=6) from MIEIC/ESOF course, 2019/20 edition, and plus more [32 development teams of students] from MIEIC/ESOF course, 2020/21 edition, [2 agile coaches (João Damas and David Reis)](), students from MIEIC/MADS course, 2019/20 edition, and [João Pedro Dias](https://jpdias.me), as IoT expert, doctoral student of ProDEI. 
 
 Process
 ---
